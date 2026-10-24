@@ -1,29 +1,145 @@
-"""
-This is a project that outputs horse pedigrees as searched by horse name or the major American stud farms in 
-Kentucky (Airdrie Stud, Claiborne Farm, Coolmore Ashford Stud, Darley Stud, Gainesway Farm, Hill 'n' Dale, Lane's End Farm, 
-Spendthrift Farm, Taylor Made Farm, Three Chimneys Farm, and WinStar Farm). It also allows the user to input pedigrees. 
-For example, if they have a new foal or if their horse is not already in the pedigrees_database.py file. 
-Additionally, it allows the user to see stallion stats (rankings, broodmare sire rankings, best value sires, and searches by crop status) 
-as well as featuring a hypomating engine.
+# Crossr
 
-The hypomating engine works by asking the user to input a broodmare. If the broodmare is not in the pedigrees database, it will ask the 
-user to input the pedigree. After inputting the pedigree, the user will be asked if they have a preferred surface or a price range. The 
-engine will then search through a file of all Graded Stakes Winners and suggest stallions to the user based on past crosses. However, if 
-the broodmare has already produced a GSW (Graded Stakes Winner), the engine will recognize that through the graded stakes winner 
-spreadsheet and output that specific stallion.
+Thoroughbred pedigree, stallion, sales, and mating research. The same data powers a **Next.js** site (`web/`) and a **Python CLI** (`main.py`).
 
-For example, the broodmare Virginia Key produced the 2025 G1 Florida Derby winner, Tappan Street. Tappan Street is by Into Mischief and 
-Virginia Key is by Distorted Humor. Because the Florida Derby is a dirt race, the code marks this down as a successful cross between 
-Into Mischief x Distorted Humor for dirt. If the user selects turf, this cross won't be suggested (unless it is also a proven turf cross). 
-The next factor is price. If you don't have $250,000 but you do have $50,000, the code provides ancestors and sons of Into Mischief 
-(such as Barnes, Authentic, Audible, etc.). This function includes an inbreeding failsafe. For example, Citizen Bull would not be suggested 
-because he is already bred on that exact same Into Mischief x Distorted Humor mare cross.
+The public UI never sees Keeneland/Fasig-Tipton CSVs or `graded_stakes_winners.csv`. Those stay on the API machine; the browser only gets JSON.
 
-The final aspect of my project is a sales engine that contains all available sales data from Fasig-Tipton (2004-) and Keeneland (1999-) 
-sales. The user can search by sale to find key sales stats, with the ability to sort by price, filter by sex, etc. The second option within 
-the sales engine is a search by stallion, which returns a list of all horses by that sire that entered an auction (which can also be sorted 
-and filtered), along with major sales stats for the entirety of their stud career and their specific sales stats for the last 5 years. 
-Lastly, users can type in a horse's name, foaling year, sire, and dam in order to see that individual horse's sales history.
+## What it does
 
-There are also numerous other files that are meant to keep the main file working properly.
-"""
+- **Horse profiles** — 5-generation catalog pedigree, female family / produce, race record, stud fee and mares bred, stallion rankings, broodmare-sire history, progeny stats, and proven crosses.
+- **Stallion directory** — filter Kentucky and other commercial books by farm, crop, fee, and stud year; compare stallions; star horses into **My Barn**.
+- **Hypomating** — given a broodmare, suggest stallions from graded-stakes winner crosses (surface + fee), then offer sons/ancestors when the proven sire is too expensive. Same-cross inbreeding is blocked (for example Citizen Bull is not re-suggested on Into Mischief × Distorted Humor).
+- **Sales** — Fasig-Tipton (2004–) and Keeneland (1999–) catalogs: browse a sale, search a sire’s auction record, or look up one horse’s sale history.
+- **Accounts** — register / sign in for saved preferences.
+
+Horses are stored as `NAME (YYYY)`. If a search hits two or more foaling years, the app asks which horse you mean.
+
+## Data on Railway
+
+Crossr's data lives in **Railway Postgres**. Set `DATABASE_URL` (see `.env.example`) and the
+API, CLI and scrapers all use it; leave it unset to run from local `data/*.csv` files.
+Setup, data loading and deployment: [`docs/RAILWAY.md`](docs/RAILWAY.md).
+
+## Run locally
+
+Python 3.11+ and Node 18+.
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 scripts/index_sales.py          # once, or after sales_data/ changes
+python3 -m uvicorn crossr_api.app:app --reload --port 8000
+```
+
+```bash
+cd web
+npm install
+npm run dev                             # http://localhost:3000
+```
+
+Or `./scripts/run_api.sh` (indexes sales if `crossr_sales.db` is missing, then starts the API).
+
+Docker (after the sales index exists):
+
+```bash
+docker compose up --build
+```
+
+Do not upload `sales_data/` or stakes CSVs to a public frontend host.
+
+## CLI
+
+```bash
+python3 main.py
+```
+
+1. Search a horse profile / pedigree  
+2. Farm rosters  
+3. Interactive pedigree builder (`add_pedigrees.py`)  
+4. Stallion stats  
+5. Hypomating  
+6. Sales history  
+
+If a horse is missing from `pedigrees_database.py`, the builder walks the 5-generation tree and writes it back.
+
+## Horse profile panels
+
+On `/horses/{name}` (and in the CLI stallion printout):
+
+| Panel | Source |
+| --- | --- |
+| Pedigree + female family | `pedigrees_database.py` |
+| Stud fee & mares bred | `stud_fee_database.csv`, `live_foal_statistics/` |
+| **Stallion rankings** | BloodHorse lists in `stallion_rankings_data/` (2001–2026), plus computed mares-bred and USD stud-fee ranks |
+| **Broodmare sire** | Leading Broodmare Sires lists + average sold yearling price (damsire) from `crossr_sales.db` |
+
+Ranking dropdowns only include lists that stallion actually appears on. Years before he entered stud are omitted. **2027 stud fees are hidden.**
+
+- **Leading Sire Rankings** — year, rank, total progeny earnings that year  
+- **Stud Fee Rankings** — year, rank, stud fee (USD only; Private / foreign currency unranked)  
+- Other BloodHorse lists (first/second/third crop, 2YO, turf, AEI, international regions, etc.) — year and rank  
+
+## Data
+
+| Path | Role |
+| --- | --- |
+| `pedigrees_database.py` | 5-generation trees (live file; importer writes here) |
+| `stallion_profiles.py` | Commercial stallion cards (farm, fee, crop, race record) |
+| `stallion_rankings_data/` | Year folders of BloodHorse ranking CSVs (28 lists × 2001–2026) |
+| `stud_fee_database.csv` | Year / stallion / advertised fee |
+| `live_foal_statistics/` | Jockey Club-style mares bred / live foals |
+| `ifha_scraper/ifha_graded_stakes_2003_2026.csv` | IFHA G1–G3 results, worldwide |
+| `graded_stakes_winners.csv` | Derived GSW file used by hypomating |
+| `sales_data/` | Catalog CSVs (API only) |
+| `crossr_sales.db` | Indexed lots (`scripts/index_sales.py`) |
+
+## Pipelines (optional)
+
+**Pedigrees from Pedigree Query.** Headed Chrome is the primary path (live PQ blocks curl). After graded-stakes horses are in the DB or are real terminal misses, `--queue auto` walks incomplete ancestor slots the same way `pedigrees_cleaner.py` would. Wayback is a polite fallback only and is paused for a few days after an IP block (`pq_scraper/wayback_pause_until.txt`).
+
+```bash
+python3 pq_scraper/fetch_pedigrees.py --resume --retry-misses --queue auto --source live --delay 1.5 --save-every 10
+```
+
+The live job is a LaunchAgent (`com.maxsoncook.pq.fetch-gsw`) plus a 5-minute heartbeat watchdog (`com.maxsoncook.pq.fetch-watchdog`). Progress: `pq_scraper/progress.json` (`last_added`, `last_attempt`, `heartbeat_at`). Misses: `pq_scraper/misses.csv`. HTTP 0 / connect failures are **not** 404s. Do not raise Wayback concurrency.
+
+If a horse already has sire/dam names and those parents are in `pedigrees_database.py`, stitch the parent trees in (no network):
+
+```bash
+python3 -m pq_scraper.stitch
+```
+
+**IFHA graded stakes** (2003–2026): scrapers and checks live under `ifha_scraper/`. Output CSV is `ifha_scraper/ifha_graded_stakes_2003_2026.csv`.
+
+**BloodHorse stallion lists**: yearly CSVs under `stallion_rankings_data/{year}/`. Stud-fee compilation: `stallion_rankings_data/build_stud_fee_database.py`.
+
+**Equibase race records** (headed Chrome; Imperva blocks scripted fetches). Queue is the top-level horses in `pedigrees_database.py`. Results go in `equibase_results.db` at the repo root (year totals and each start). Raw HTML is cached under `equibase_scraper/cache/`. The full pass is long — about two days at the default delay — and resumable: horses already marked ok are skipped. If Chrome shows “Pardon Our Interruption,” finish that page once and rerun the same command.
+
+```bash
+python3 -m equibase_scraper.run --enqueue
+python3 -m equibase_scraper.run --resume --delay 3
+python3 -m equibase_scraper.run --horse "American Pharoah" --year 2012
+python3 -m equibase_scraper.run --show "American Pharoah" --year 2012
+python3 -m equibase_scraper.run --fill-pedigrees --delay 1
+```
+
+**Re-index sales** after adding catalogs:
+
+```bash
+python3 scripts/index_sales.py
+```
+
+## Layout
+
+```
+main.py                 CLI + shared name cleaning / pedigree lookup
+hypomating_engine.py    Mating suggestions from GSW crosses
+crossr_api/             FastAPI JSON API (:8000)
+crossr_core/            Horse profiles, sales queries, auth
+web/                    Next.js 14 UI (:3000)
+pq_scraper/             Pedigree Query / Wayback importer
+ifha_scraper/           IFHA graded-stakes scrape + validation
+stallion_rankings_data/ BloodHorse ranking CSVs + fee builders
+scripts/                Sales indexer, API helper
+```
+
+Web routes: `/` home, `/stallions`, `/horses/[name]`, `/hypomating`, `/sales`, `/compare`, `/barn`, `/signin`.

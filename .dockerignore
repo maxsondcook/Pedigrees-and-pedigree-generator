@@ -1,0 +1,20 @@
+.git
+web/node_modules
+web/.next
+**/__pycache__
+*.pyc
+.mypy_cache
+.pytest_cache
+.env
+# Data lives in Railway Postgres; keep it out of the image
+data/
+pedigrees_database.py
+*.db
+*.db-wal
+*.db-shm
+sales_data/
+equibase_export/
+equibase_new_horses.csv
+**/cache/
+**/chrome_profile*/
+pq_scraper/cache_*/

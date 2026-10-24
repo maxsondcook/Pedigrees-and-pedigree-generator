@@ -1,0 +1,44 @@
+{
+  "races_seen": 1611,
+  "races_with_results": 1598,
+  "races_without_results": 13,
+  "finisher_rows": 4796,
+  "total_rows_written": 4809,
+  "parse_failures": 0,
+  "issues_total": 181,
+  "issue_types": {
+    "purse_usd_disagrees": 93,
+    "colour_blank": 28,
+    "missing_country_name": 21,
+    "purse_local_is_usd": 19,
+    "no_results_published": 13,
+    "zero_purse": 5,
+    "unexpected_finisher_count": 2
+  },
+  "group_breakdown": {
+    "G1": 1296,
+    "G2": 1357,
+    "G3": 2143
+  },
+  "distance_units": {
+    "Furlongs": 2065,
+    "Meters": 2731
+  },
+  "surfaces": {
+    "AW": 105,
+    "D": 1356,
+    "T": 3335
+  },
+  "years_requested": [
+    2015
+  ],
+  "elapsed_seconds": 1.92,
+  "normalize_gaps_worked_around": [
+    "colour_name() does not know the Equibase codes 'DK B/' (649 of 4,796 2015 rows), 'GR/B', 'BR/BL', 'B/GR'",
+    "currency_for() does not know IFHA's Korea code 'KOA'",
+    "currency_for() cannot resolve a bare currency SYMBOL ('\u20ac', '\u00a3', '\u00a5', '$A', 'HK$', 'S/', '$U', 'Ps', 'CN$'), only codes and country names",
+    "no furlongs_to_metres() inverse of metres_to_furlongs()",
+    "parse_horse_descriptor() reads the leading 2 digits as AGE; on IFHA they are the 2-digit YEAR OF BIRTH, and it also whitespace-tokenizes a fixed-width field",
+    "no helper to turn a 2-digit year of birth into a full year / age"
+  ]
+}

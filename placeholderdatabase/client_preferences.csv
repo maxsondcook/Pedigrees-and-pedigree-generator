@@ -1,0 +1,4 @@
+preference_id,client_id,sex,foaled,surface,min_stud_fee,max_stud_fee,sire_name,requires_producer_note
+1,1,C,KY,,100000,,,0
+2,2,F,,,,40000,,0
+3,3,,NY,,,,,0

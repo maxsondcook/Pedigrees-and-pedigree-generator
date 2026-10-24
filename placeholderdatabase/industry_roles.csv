@@ -1,0 +1,11 @@
+role_name,description
+Bloodstock Agent,Buys and manages horses for clients
+Owner,Races horses in their own name
+Breeder,Plans matings and raises foals
+Owner/Breeder,Breeds and races
+Trainer,Trains runners
+Farm Manager,Runs a stallion or broodmare farm
+Consignor,Sells at auction
+Racing Manager,Manages a racing stable
+Veterinarian,Advises on soundness
+Other,Another role in the industry

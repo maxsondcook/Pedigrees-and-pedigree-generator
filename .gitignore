@@ -1,0 +1,60 @@
+web/node_modules/
+web/.next/
+__pycache__/
+*.pyc
+.DS_Store
+.mypy_cache/
+.pytest_cache/
+crossr_sales.db
+crossr_users.db
+equibase_results.db
+equibase_results.db-wal
+equibase_results.db-shm
+equibase_export/
+sales_database.db
+
+# Scraper runtime / caches (do not push)
+**/cache/
+**/chrome_profile/
+**/chrome_profile_*/
+equibase_scraper/run.log
+equibase_scraper/run.pid
+equibase_scraper/resume.log
+pq_scraper/*.log
+pq_scraper/db.lock
+pq_scraper/misses.csv
+pq_scraper/rate_limited_retry.csv
+pq_scraper/live_session.json
+pq_scraper/ide_*.json
+pq_scraper/progress*.json*
+ifha_scraper/cache/
+ifha_scraper/parsed_records.jsonl
+ifha_scraper/parse_issues.jsonl
+
+# Local backups / clutter
+*.bak
+*.bak-*
+pedigrees_database.py.bak*
+redundant_files/
+redundant_folders/
+package-lock.json
+
+# Runtime data lives in Railway Postgres (load with scripts/load_railway.py).
+# Local copies stay on disk but are never pushed.
+data/
+pedigrees_database.py
+pedigrees_database.py.tmp
+
+# Secrets / local scrapes
+**/cookies.txt
+**/rp_cookies.txt
+stallion_rankings_data/stallion_rankings.db
+equibase_new_horses.csv
+
+# Local env / retired files
+.env
+Going_to_delete/
+crossr_core/__pycache__/
+.mplconfig/
+.venv/
+logs/

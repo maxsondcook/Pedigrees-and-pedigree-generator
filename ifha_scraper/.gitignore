@@ -1,0 +1,4 @@
+# Cached raw HTML: ~1.4 GB for the full 2003-2026 job. Regenerable.
+cache/
+*.log
+__pycache__/
