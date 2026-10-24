@@ -51,10 +51,15 @@ BLOCKED_PATH_BITS = (
     "sales_data",
     "graded_stakes_winners",
     "live_foal_statistics",
+    "Going_to_delete",
+    "stallion_rankings_data",
+    "equibase_results",
+    "stud_fee_database",
     ".csv",
     ".db",
     "pedigrees_database",
     "stallion_profiles",
+    "stallion_stats",
 )
 
 

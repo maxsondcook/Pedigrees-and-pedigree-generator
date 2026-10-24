@@ -5,8 +5,8 @@ import os
 import re
 import pprint
 import copy
-import stallion_stats 
 import hypomating_engine
+import placeholder_store
 
 # NAME CLEANING
 def clean_horse_name(name: str) -> str:
@@ -279,14 +279,8 @@ def save_database_to_file():
 
 
 def save_profiles_to_file(master_profiles):
-    """Persist stallion cards to placeholderdatabase/stallion_stats.csv."""
-    try:
-        import placeholder_store
-
-        placeholder_store.save_stallion_profiles(master_profiles or {})
-        print("\n💾 Stallion stats written to placeholderdatabase/stallion_stats.csv")
-    except Exception as e:
-        print(f"\n⚠️  Warning: Could not save stallion stats CSV: {e}")
+    """Legacy no-op: stud cards derive from data/stud_fees.csv via sample_db."""
+    print("\nℹ️  Stud fees live in data/stud_fees.csv (pipeline upsert); profile dict not persisted.")
 
 
 # ==============================================================================
@@ -539,10 +533,8 @@ def analyze_inbreeding(horse_dict):
 # 6. PROFILE INTERFACE RUNTIME VIEWERS & GRID RENDERER
 # ==============================================================================
 def load_master_profiles():
-    """Load stallion display cards from placeholderdatabase/stallion_stats.csv."""
+    """Load stallion display cards from data/stud_fees.csv (+ ranks/breeding)."""
     try:
-        import placeholder_store
-
         return placeholder_store.load_stallion_profiles()
     except Exception:
         return {}
@@ -873,27 +865,14 @@ def display_stallion_profile(search_name, all_profiles):
         lf_2024_val = None
 
         try:
-            import mares_bred_2025_by_stallion as mb_data
-            for s in mb_data.mares_bred_database.get("North American Stallions", []):
-                if clean_horse_name(s.get("stallion", "")) == clean_search:
-                    mares_bred_val = s.get("mares_bred_2025")
-                    
-                    def format_ratio(ratio_str):
-                        if not ratio_str or "/" not in str(ratio_str):
-                            return None
-                        try:
-                            parts = str(ratio_str).split("/")
-                            pct = (int(parts[1]) / int(parts[0])) * 100
-                            return f"{pct:.1f}% ({parts[1]} foals from {parts[0]} mares)"
-                        except Exception:
-                            return str(ratio_str)
-
-                    lf_2025_raw = s.get("live_foal_percentage_for_2025_foals")
-                    lf_2024_raw = s.get("live_foal_percentage_for_2024_foals")
-                    
-                    lf_2025_val = format_ratio(lf_2025_raw) if lf_2025_raw else None
-                    lf_2024_val = format_ratio(lf_2024_raw) if lf_2024_raw else None
-                    break
+            from crossr_core import sample_db
+            for row in sample_db.breeding_for_stallion(clean_search):
+                year = str(row.get("breeding_year") or "")
+                if year == "2025":
+                    mares_bred_val = row.get("mares_bred")
+                    lf_2025_val = row.get("live_foal_pct") or None
+                elif year == "2024":
+                    lf_2024_val = row.get("live_foal_pct") or None
         except Exception:
             pass
 
@@ -1083,7 +1062,7 @@ if __name__ == "__main__":
                 print(f"⚠️ An error occurred while running the pedigree builder: {e}")
                         
         elif choice == "4":
-            stallion_stats.run_stats_menu()
+            print("❌ Stallion stats CLI retired — use data/stud_fees.csv + data/stallion_rankings.csv via the web UI.")
             
         elif choice == "5":
             hypomating_engine.run_hypomating_menu(PEDIGREE_DATABASE, all_profiles)

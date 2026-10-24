@@ -1,10 +1,6 @@
-"""SQLite-backed sales hub queries. Raw CSVs stay on the server."""
-import os
-import sqlite3
-
+"""Sales hub queries over data/sales_lots.csv (via sample_db in-memory index)."""
 import sales_history
-
-DEFAULT_DB = os.path.join(os.path.dirname(os.path.dirname(__file__)), "crossr_sales.db")
+from crossr_core import sample_db
 
 LOT_SELECT = """
     SELECT l.id, l.hip, l.name, l.sex, l.sex_letter, l.sire, l.dam, l.damsire,
@@ -16,31 +12,30 @@ LOT_SELECT = """
 """
 
 
+class _SharedConn:
+    """Wrap the shared in-memory SQLite so callers' conn.close() is a no-op."""
+
+    def __init__(self, conn):
+        self._conn = conn
+
+    def __getattr__(self, name):
+        return getattr(self._conn, name)
+
+    def close(self):
+        return None
+
+
 def db_path():
-    return os.environ.get("SALES_DB_PATH", DEFAULT_DB)
-
-
-_DAMSIRE_INDEXED = False
+    return str(sample_db.csv_path("sales_lots"))
 
 
 def ensure_damsire_index():
-    global _DAMSIRE_INDEXED
-    if _DAMSIRE_INDEXED:
-        return
-    conn = connect()
-    if not conn:
-        return
-    try:
-        conn.execute("CREATE INDEX IF NOT EXISTS idx_lots_damsire ON lots(damsire_key)")
-        conn.commit()
-        _DAMSIRE_INDEXED = True
-    finally:
-        conn.close()
+    # Index is created when sample_db builds the in-memory sales DB.
+    return
 
 
 def damsire_yearling_averages(stallion_name):
     """Catalog-year average sold yearling price for lots whose damsire is this stallion."""
-    ensure_damsire_index()
     conn = connect()
     if not conn:
         return {}
@@ -75,12 +70,9 @@ def damsire_yearling_averages(stallion_name):
 
 
 def connect():
-    path = db_path()
-    if not os.path.exists(path):
-        return None
-    conn = sqlite3.connect(path)
-    conn.row_factory = sqlite3.Row
-    return conn
+    """In-memory index derived from data/sales_lots.csv; refreshes on mtime."""
+    conn = sample_db.sales_connection()
+    return _SharedConn(conn) if conn is not None else None
 
 
 def _lot_from_row(row):

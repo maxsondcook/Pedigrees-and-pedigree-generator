@@ -1,8 +1,8 @@
 """
 Horse Fee Database
 
-Stores current and historical stud fees by stallion / nomination year.
-Scraped Racing Post fee-history rows are persisted to stud_fee_database.json.
+Scraped Racing Post fee-history rows upsert into data/stud_fees.csv (sample DB).
+Legacy stud_fee_database.json is staging only — pipeline/runtime use the CSV.
 """
 
 from __future__ import annotations
@@ -10,15 +10,18 @@ from __future__ import annotations
 import csv
 import json
 import re
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 from urllib.parse import quote_plus
 
-DB_PATH = Path(__file__).resolve().parent / "stud_fee_database.json"
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+
+DB_PATH = ROOT / "stud_fee_database.json"  # scrape staging only
 CSV_FEE_PATHS = [
-    ROOT / "stud_fee_database.csv",
+    ROOT / "data" / "stud_fees.csv",
     ROOT / "stallion_rankings_data" / "stud_fee_database.csv",
 ]
 # Fees above this are almost always bad scrapes / FX artifacts (e.g. ¥ mislabeled as $).
@@ -106,6 +109,37 @@ def save_fee_database(db: Dict[str, dict], path: Path = DB_PATH) -> None:
     ordered = dict(sorted(db.items(), key=lambda kv: kv[0]))
     with open(path, "w", encoding="utf-8") as f:
         json.dump(ordered, f, indent=2, sort_keys=True)
+    # Canonical sample CSV (atomic upsert) so :8000 can keep serving mid-scrape.
+    try:
+        from crossr_core import sample_db
+
+        rows = []
+        for stallion, entry in ordered.items():
+            farm = (entry or {}).get("farm") or ""
+            fees = (entry or {}).get("fees_by_year") or {}
+            for year, fee in fees.items():
+                rows.append({
+                    "Year": str(year),
+                    "Stallion": stallion,
+                    "Stud Fee": str(fee),
+                    "Farm": farm,
+                    "Source List": "Racing Post",
+                    "Notes": "",
+                })
+            current = (entry or {}).get("current_fee")
+            if current and not fees:
+                rows.append({
+                    "Year": "",
+                    "Stallion": stallion,
+                    "Stud Fee": str(current),
+                    "Farm": farm,
+                    "Source List": "Racing Post",
+                    "Notes": "current_fee",
+                })
+        if rows:
+            sample_db.upsert_rows("stud_fees", rows)
+    except Exception as exc:
+        print(f"warning: could not upsert data/stud_fees.csv: {exc}")
 
 
 def _ensure_entry(db: Dict[str, dict], stallion: str) -> dict:

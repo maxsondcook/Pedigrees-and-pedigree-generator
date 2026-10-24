@@ -1,8 +1,7 @@
-"""Load the worldwide IFHA Group/Graded stakes CSV used by hypomating and sales.
+"""Load graded/group stakes from data/graded_stakes.csv (sample DB).
 
-The file ``graded_stakes_winners.csv`` is the IFHA worldwide results export
-(one row per 1st/2nd/3rd), not the old USA-winners-only sheet. This module is
-the single reader for that file.
+Scraper staging (ifha_scraper / root dumps) is merged into that CSV by
+scripts/pipeline/run.py. This module is the runtime reader.
 
 Normalization
 -------------
@@ -29,20 +28,21 @@ import re
 
 import pandas as pd
 
-STAKES_CSV_NAME = "graded_stakes_winners.csv"
+STAKES_CSV_NAME = "graded_stakes.csv"
 MISSING_NAMES = {"", "N/A", "NAN", "NONE", "<NA>"}
 
 _DATE_YEAR_RE = re.compile(r"\b((?:19|20)\d{2})\b")
 
 _cached_frames = {}
 _cached_records = {}
+_cached_mtime = {}
 
 
 def _default_csv_path():
     here = os.path.dirname(os.path.abspath(__file__))
     candidates = [
-        os.path.join(os.getcwd(), STAKES_CSV_NAME),
-        os.path.join(here, STAKES_CSV_NAME),
+        os.path.join(here, "data", STAKES_CSV_NAME),
+        os.path.join(os.getcwd(), "data", STAKES_CSV_NAME),
     ]
     for path in candidates:
         if os.path.isfile(path):
@@ -131,12 +131,15 @@ def load_graded_stakes_dataframe(path=None, winners_only=True):
     """
     csv_path = path or _default_csv_path()
     if not os.path.isfile(csv_path):
-        print(f"⚠️ Warning: {STAKES_CSV_NAME} not found.")
+        print(f"⚠️ Warning: data/{STAKES_CSV_NAME} not found.")
         return pd.DataFrame()
 
     cache_key = os.path.abspath(csv_path)
-    if cache_key not in _cached_frames:
+    mtime = os.path.getmtime(csv_path)
+    if cache_key not in _cached_frames or _cached_mtime.get(cache_key) != mtime:
         _cached_frames[cache_key] = _read_and_normalize(csv_path)
+        _cached_mtime[cache_key] = mtime
+        _cached_records.clear()
 
     df = _cached_frames[cache_key]
     if winners_only and "Place" in df.columns:

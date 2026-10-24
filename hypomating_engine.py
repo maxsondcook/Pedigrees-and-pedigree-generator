@@ -4,16 +4,12 @@ import copy
 import re
 import main
 import hypofoals_manager
+import placeholder_store
 from graded_stakes import load_stakes_data
 
-# ==============================================================================
-# BROODMARE SIRE INTEGRATION FIXES
-# ==============================================================================
-try:
-    from broodmare_sire_data import BROODMARE_DATABASE, clean_horse_name
-except ImportError:
-    print("❌ Error: Could not find 'broodmare_sire_data.py'. Ensure it is in the same directory.")
-    sys.exit(1)
+# Broodmare sire ranks from data/stallion_rankings.csv (Broodmare list).
+BROODMARE_DATABASE = placeholder_store.load_broodmare_database()
+clean_horse_name = placeholder_store.broodmare_clean_horse_name
 
 RAW_RANKING_ORDER = [
     "Not This Time",       # 1

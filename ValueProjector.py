@@ -199,11 +199,11 @@ def foals_of_racing_age(name: str, profile: Optional[dict] = None) -> int:
                     pass
     # Broodmare-sire cum_foals as last resort for prolific older sires
     try:
-        from broodmare_sire_data import broodmare_sire_raw, clean_horse_name as bms_clean
+        import placeholder_store
 
-        target = bms_clean(name)
-        for entry in broodmare_sire_raw:
-            if bms_clean(entry["stallion"]) == target:
+        target = placeholder_store.broodmare_clean_horse_name(name)
+        for entry in placeholder_store.load_broodmare_sire_rows():
+            if placeholder_store.broodmare_clean_horse_name(entry["stallion"]) == target:
                 n = int(entry.get("cum_foals") or 0)
                 if n > 0:
                     return n
@@ -300,10 +300,10 @@ def project_colt_bv(colt_sire: str, verbose: bool = True) -> dict:
     # Notebook ballpark for Tapit was ~3000; if profile is thin, allow BMS cum_foals
     if f_ss <= 0:
         try:
-            from broodmare_sire_data import broodmare_sire_raw, clean_horse_name as bms_clean
+            import placeholder_store
 
-            for entry in broodmare_sire_raw:
-                if bms_clean(entry["stallion"]) == bms_clean(ss_display):
+            for entry in placeholder_store.load_broodmare_sire_rows():
+                if placeholder_store.broodmare_clean_horse_name(entry["stallion"]) == placeholder_store.broodmare_clean_horse_name(ss_display):
                     f_ss = int(entry.get("cum_foals") or 0)
                     break
         except Exception:

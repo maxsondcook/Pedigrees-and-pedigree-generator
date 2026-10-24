@@ -1,4 +1,4 @@
-"""Rich BloodHorse stallion ranking history from stallion_rankings.db.
+"""Rich BloodHorse stallion ranking history from data/stallion_rankings.csv.
 
 Surfaces AEI, CI, earnings, runners, and every other published metric column
 for the stallion profile STALLION RANKINGS panel.
@@ -10,9 +10,9 @@ import re
 import sqlite3
 
 import main
+from crossr_core import sample_db
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-_DB_CONN = None
 
 # BloodHorse SQLite list/table → UI list id + label.
 _DB_LIST_META = {
@@ -164,19 +164,11 @@ _SKIP_NUM_KEYS = {
 
 
 def _db_path():
-    return os.path.join(ROOT, "stallion_rankings_data", "stallion_rankings.db")
+    return str(sample_db.csv_path("stallion_rankings"))
 
 
 def _conn():
-    global _DB_CONN
-    path = _db_path()
-    if not os.path.exists(path):
-        return None
-    if _DB_CONN is None:
-        c = sqlite3.connect(path, check_same_thread=False)
-        c.row_factory = sqlite3.Row
-        _DB_CONN = c
-    return _DB_CONN
+    return sample_db.rankings_connection()
 
 
 def _intish(val):

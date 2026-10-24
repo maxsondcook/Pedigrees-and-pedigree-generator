@@ -74,51 +74,42 @@ def _stud_rank(name):
 
 
 def _parent_lookup():
-    """Sire/dam from placeholder horses.csv — never scans the pedigree DB."""
+    """Sire/dam from data/race_horses.csv — never scans the pedigree DB."""
     global _PARENT_BY_KEY
     if _PARENT_BY_KEY is not None:
         return _PARENT_BY_KEY
     out = {}
-    path = os.path.join(ROOT, "placeholderdatabase", "horses.csv")
-    if os.path.exists(path):
-        with open(path, encoding="utf-8-sig", errors="ignore") as handle:
-            for row in csv.DictReader(handle):
-                key = main.clean_horse_name(row.get("name") or row.get("name_key") or "")
-                if not key or key in out:
-                    continue
-                sire = (row.get("sire_name") or "").strip() or None
-                dam = (row.get("dam_name") or "").strip() or None
-                if sire:
-                    sire = re.sub(r"\s*\(\d{4}\)", "", sire).strip() or None
-                if dam:
-                    dam = re.sub(r"\s*\(\d{4}\)", "", dam).strip() or None
-                out[key] = (sire, dam)
+    from crossr_core import sample_db
+    for row in sample_db.load_table("race_horses"):
+        key = main.clean_horse_name(row.get("display_name") or row.get("name_key") or "")
+        if not key or key in out:
+            continue
+        sire = (row.get("sire") or "").strip() or None
+        dam = (row.get("dam") or "").strip() or None
+        if sire:
+            sire = re.sub(r"\s*\(\d{4}\)", "", sire).strip() or None
+        if dam:
+            dam = re.sub(r"\s*\(\d{4}\)", "", dam).strip() or None
+        out[key] = (sire, dam)
     _PARENT_BY_KEY = out
     return out
 
 
-def _mares_bred_2026_path():
-    pattern = os.path.join(ROOT, "live_foal_statistics", "*2026*Breeding Season*.csv")
-    hits = sorted(glob.glob(pattern))
-    return hits[0] if hits else None
-
-
 def _load_mares_bred_2026():
-    path = _mares_bred_2026_path()
-    if not path:
-        return []
     rows = []
-    with open(path, encoding="utf-8-sig", errors="ignore") as handle:
-        for row in csv.DictReader(handle):
-            name = (row.get("Stallion") or "").strip()
-            if not name:
-                continue
-            rows.append({
-                "name": name,
-                "key": main.clean_horse_name(name),
-                "mares_bred": _intish(row.get("Mares Bred")),
-                "state": (row.get("State") or "").strip() or None,
-            })
+    from crossr_core import sample_db
+    for row in sample_db.load_table("breeding_seasons"):
+        if str(row.get("breeding_year") or "") != "2026":
+            continue
+        name = (row.get("stallion") or "").strip()
+        if not name:
+            continue
+        rows.append({
+            "name": name,
+            "key": main.clean_horse_name(name),
+            "mares_bred": _intish(row.get("mares_bred")),
+            "state": (row.get("state") or "").strip() or None,
+        })
     return rows
 
 
@@ -894,63 +885,29 @@ def load_book_stats():
     if _FEE_HISTORY is not None and _MARES_HISTORY is not None:
         return _FEE_HISTORY, _MARES_HISTORY
 
+    from crossr_core import sample_db
+
     fees = {}
-    fee_path = os.path.join(ROOT, "stud_fee_database.csv")
-    if os.path.exists(fee_path):
-        with open(fee_path, encoding="utf-8-sig", errors="ignore") as f:
-            for row in csv.DictReader(f):
-                name = main.clean_horse_name(row.get("Stallion") or "")
-                year = _intish(row.get("Year"))
-                if not name or not year:
-                    continue
-                fees.setdefault(name, {})[year] = _format_stud_fee(row.get("Stud Fee"))
+    for row in sample_db.load_table("stud_fees"):
+        name = main.clean_horse_name(row.get("Stallion") or "")
+        year = _intish(row.get("Year"))
+        if not name or not year:
+            continue
+        fees.setdefault(name, {})[year] = _format_stud_fee(row.get("Stud Fee"))
 
     mares = {}
-    pattern = os.path.join(ROOT, "live_foal_statistics", "*.csv")
-    for path in glob.glob(pattern):
-        match = re.search(r"(\d{4}) Breeding Season", os.path.basename(path))
-        year = int(match.group(1)) if match else None
-        if not year:
+    for row in sample_db.load_table("breeding_seasons"):
+        name = main.clean_horse_name(row.get("stallion") or "")
+        year = _intish(row.get("breeding_year"))
+        if not name or not year:
             continue
-        with open(path, encoding="utf-8-sig", errors="ignore") as f:
-            for row in csv.DictReader(f):
-                name = main.clean_horse_name(row.get("Stallion") or "")
-                if not name:
-                    continue
-                mares.setdefault(name, {})[year] = {
-                    "year": year,
-                    "mares_bred": _intish(row.get("Mares Bred")),
-                    "live_foals": _intish(row.get("Live Foals")),
-                    "live_foal_pct": (row.get("Live Foal %") or "").strip() or None,
-                    "state": (row.get("State") or "").strip() or None,
-                }
-
-    try:
-        import mares_bred_2025_by_stallion as mb_data
-        for s in mb_data.mares_bred_database.get("North American Stallions", []):
-            name = main.clean_horse_name(s.get("stallion") or "")
-            if not name:
-                continue
-            raw_lf = s.get("live_foal_percentage_for_2025_foals")
-            live_foals = None
-            live_pct = None
-            if raw_lf and "/" in str(raw_lf):
-                parts = str(raw_lf).split("/")
-                try:
-                    reports, foals = int(parts[0]), int(parts[1])
-                    live_foals = foals
-                    live_pct = f"{(foals / reports) * 100:.0f}%" if reports else None
-                except Exception:
-                    live_pct = str(raw_lf)
-            mares.setdefault(name, {})[2025] = {
-                "year": 2025,
-                "mares_bred": _intish(s.get("mares_bred_2025")),
-                "live_foals": live_foals,
-                "live_foal_pct": live_pct,
-                "state": s.get("state_prov"),
-            }
-    except Exception:
-        pass
+        mares.setdefault(name, {})[year] = {
+            "year": year,
+            "mares_bred": _intish(row.get("mares_bred")),
+            "live_foals": _intish(row.get("live_foals")),
+            "live_foal_pct": (row.get("live_foal_pct") or "").strip() or None,
+            "state": (row.get("state") or "").strip() or None,
+        }
 
     _FEE_HISTORY = fees
     _MARES_HISTORY = mares
@@ -1229,21 +1186,19 @@ def load_stallion_ranking_tables():
 
     fee_by_year = {}
     fee_extras = {}
-    fee_path = os.path.join(ROOT, "stud_fee_database.csv")
-    if os.path.exists(fee_path):
-        with open(fee_path, encoding="utf-8-sig", errors="ignore") as f:
-            for row in csv.DictReader(f):
-                name = main.clean_horse_name(row.get("Stallion") or "")
-                year = _intish(row.get("Year"))
-                raw_fee = row.get("Stud Fee")
-                amount = _fee_amount(raw_fee)
-                if not name or not year or year > _FEE_RANK_MAX_YEAR or amount is None:
-                    continue
-                fee_by_year.setdefault(year, {})[name] = amount
-                fee_extras.setdefault(name, {})[year] = {
-                    "stud_fee": _format_stud_fee(raw_fee),
-                    "stud_fee_num": amount,
-                }
+    from crossr_core import sample_db
+    for row in sample_db.load_table("stud_fees"):
+        name = main.clean_horse_name(row.get("Stallion") or "")
+        year = _intish(row.get("Year"))
+        raw_fee = row.get("Stud Fee")
+        amount = _fee_amount(raw_fee)
+        if not name or not year or year > _FEE_RANK_MAX_YEAR or amount is None:
+            continue
+        fee_by_year.setdefault(year, {})[name] = amount
+        fee_extras.setdefault(name, {})[year] = {
+            "stud_fee": _format_stud_fee(raw_fee),
+            "stud_fee_num": amount,
+        }
     fee_ranks, fee_years = _rank_metric_maps(fee_by_year)
 
     lists.append({"id": "mares_bred", "label": "Mares Bred Rankings", "group": "book"})
@@ -1331,56 +1286,25 @@ def stallion_ranking_history(stallion_name, entered_stud=None):
 
 
 def _broodmare_ranking_rows(stallion_name):
-    """Year/rank/earnings/runners from Leading Broodmare Sires CSVs + placeholder stats."""
+    """Year/rank/earnings/runners from data/stallion_rankings.csv (Broodmare list)."""
     key = main.clean_horse_name(stallion_name)
     by_year = {}
-    pattern = os.path.join(ROOT, "stallion_rankings_data", "*", "*Leading Broodmare Sires.csv")
-    for path in sorted(glob.glob(pattern)):
-        year_match = re.search(r"(?:19|20)\d{2}", os.path.basename(os.path.dirname(path)))
-        if not year_match:
+    from crossr_core import sample_db
+    for row in sample_db.load_table("stallion_rankings"):
+        if (row.get("list") or "").strip() != "Broodmare":
             continue
-        year = int(year_match.group(0))
-        try:
-            with open(path, encoding="utf-8-sig", errors="ignore", newline="") as handle:
-                for row in csv.DictReader(handle):
-                    raw_name = (row.get("Stallion") or "").strip()
-                    if not raw_name:
-                        continue
-                    first = raw_name.splitlines()[0].strip()
-                    if main.clean_horse_name(first) != key:
-                        continue
-                    rank = _intish(row.get("#") or row.get("Rank"))
-                    earnings = _csv_earnings(row)
-                    runners = _intish(row.get("Rnrs") or row.get("Runners") or row.get("Dams"))
-                    count_label = "Runners" if (row.get("Rnrs") or row.get("Runners")) else ("Dams" if row.get("Dams") else "Runners")
-                    by_year[year] = {
-                        "year": year,
-                        "rank": rank,
-                        "earnings": earnings,
-                        "count": runners,
-                        "count_label": count_label,
-                    }
-        except Exception:
+        if main.clean_horse_name(row.get("stallion") or "") != key:
             continue
-    try:
-        import placeholder_store
-
-        for entry in placeholder_store.load_broodmare_sire_rows():
-            if placeholder_store.broodmare_clean_horse_name(entry.get("stallion") or "") != key:
-                # also try main cleaner
-                if main.clean_horse_name(entry.get("stallion") or "") != key:
-                    continue
-            year = 2026
-            if year not in by_year:
-                by_year[year] = {
-                    "year": year,
-                    "rank": entry.get("rank"),
-                    "earnings": entry.get("earnings_2026"),
-                    "count": entry.get("rnrs") or entry.get("dams"),
-                    "count_label": "Runners" if entry.get("rnrs") not in (None, "") else "Dams",
-                }
-    except Exception:
-        pass
+        year = _intish(row.get("year"))
+        if not year:
+            continue
+        by_year[year] = {
+            "year": year,
+            "rank": _intish(row.get("rank")),
+            "earnings": _intish(row.get("year_earnings") or row.get("chief_earner_earnings")),
+            "count": _intish(row.get("runners") or row.get("dams")),
+            "count_label": "Runners" if row.get("runners") else "Dams",
+        }
     return [by_year[y] for y in sorted(by_year, reverse=True)]
 
 
@@ -1670,13 +1594,14 @@ def get_horse_profile(search_name, profiles=None):
         lf_2025_val = None
         lf_2024_val = None
         try:
-            import mares_bred_2025_by_stallion as mb_data
-            for s in mb_data.mares_bred_database.get("North American Stallions", []):
-                if main.clean_horse_name(s.get("stallion", "")) == clean_search:
-                    mares_bred_val = s.get("mares_bred_2025")
-                    lf_2025_val = _format_ratio(s.get("live_foal_percentage_for_2025_foals"))
-                    lf_2024_val = _format_ratio(s.get("live_foal_percentage_for_2024_foals"))
-                    break
+            from crossr_core import sample_db
+            for row in sample_db.breeding_for_stallion(clean_search):
+                year = str(row.get("breeding_year") or "")
+                if year == "2025":
+                    mares_bred_val = _intish(row.get("mares_bred"))
+                    lf_2025_val = (row.get("live_foal_pct") or "").strip() or None
+                elif year == "2024":
+                    lf_2024_val = (row.get("live_foal_pct") or "").strip() or None
         except Exception:
             pass
 
