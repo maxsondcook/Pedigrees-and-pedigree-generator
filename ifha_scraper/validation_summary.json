@@ -1,0 +1,635 @@
+{
+  "generated_utc": "2026-10-05 20:32:41Z",
+  "years_requested": [
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "purse_source_mode": "hybrid",
+  "rows_before_dedup": 91479,
+  "omitted_uncached_detail_rows": 0,
+  "rows_written": 90518,
+  "races_written": 30390,
+  "duplicate_races_collapsed": 326,
+  "rows_dropped_by_dedup": 961,
+  "coverage": {
+    "rows_by_year": {
+      "2003": 928,
+      "2004": 4552,
+      "2005": 4178,
+      "2006": 4107,
+      "2007": 4508,
+      "2008": 3705,
+      "2009": 4427,
+      "2010": 4342,
+      "2011": 4126,
+      "2012": 3811,
+      "2013": 3892,
+      "2014": 4391,
+      "2015": 4767,
+      "2016": 4376,
+      "2017": 4270,
+      "2018": 3933,
+      "2019": 3552,
+      "2020": 2726,
+      "2021": 3775,
+      "2022": 3797,
+      "2023": 3506,
+      "2024": 3460,
+      "2025": 3128,
+      "2026": 2261
+    },
+    "races_by_year": {
+      "2003": 324,
+      "2004": 1532,
+      "2005": 1425,
+      "2006": 1394,
+      "2007": 1559,
+      "2008": 1270,
+      "2009": 1480,
+      "2010": 1450,
+      "2011": 1379,
+      "2012": 1273,
+      "2013": 1297,
+      "2014": 1462,
+      "2015": 1597,
+      "2016": 1461,
+      "2017": 1423,
+      "2018": 1313,
+      "2019": 1187,
+      "2020": 910,
+      "2021": 1261,
+      "2022": 1266,
+      "2023": 1173,
+      "2024": 1155,
+      "2025": 1043,
+      "2026": 756
+    },
+    "rows_by_year_group": {
+      "2003": {
+        "G1": 826,
+        "G2": 72,
+        "G3": 30
+      },
+      "2004": {
+        "G1": 1135,
+        "G2": 1397,
+        "G3": 2020
+      },
+      "2005": {
+        "G1": 1038,
+        "G2": 1239,
+        "G3": 1901
+      },
+      "2006": {
+        "G1": 954,
+        "G2": 1288,
+        "G3": 1865
+      },
+      "2007": {
+        "G1": 1130,
+        "G2": 1330,
+        "G3": 2048
+      },
+      "2008": {
+        "G1": 914,
+        "G2": 1098,
+        "G3": 1693
+      },
+      "2009": {
+        "G1": 1133,
+        "G2": 1282,
+        "G3": 2012
+      },
+      "2010": {
+        "G1": 1112,
+        "G2": 1247,
+        "G3": 1983
+      },
+      "2011": {
+        "G1": 1088,
+        "G2": 1194,
+        "G3": 1844
+      },
+      "2012": {
+        "G1": 896,
+        "G2": 1121,
+        "G3": 1794
+      },
+      "2013": {
+        "G1": 892,
+        "G2": 1108,
+        "G3": 1892
+      },
+      "2014": {
+        "G1": 1139,
+        "G2": 1246,
+        "G3": 2006
+      },
+      "2015": {
+        "G1": 1295,
+        "G2": 1338,
+        "G3": 2134
+      },
+      "2016": {
+        "G1": 1166,
+        "G2": 1262,
+        "G3": 1948
+      },
+      "2017": {
+        "G1": 1020,
+        "G2": 1235,
+        "G3": 2015
+      },
+      "2018": {
+        "G1": 1034,
+        "G2": 1132,
+        "G3": 1767
+      },
+      "2019": {
+        "G1": 942,
+        "G2": 1022,
+        "G3": 1588
+      },
+      "2020": {
+        "G1": 792,
+        "G2": 811,
+        "G3": 1123
+      },
+      "2021": {
+        "G1": 1159,
+        "G2": 1059,
+        "G3": 1557
+      },
+      "2022": {
+        "G1": 1141,
+        "G2": 1042,
+        "G3": 1614
+      },
+      "2023": {
+        "G1": 941,
+        "G2": 1010,
+        "G3": 1555
+      },
+      "2024": {
+        "G1": 902,
+        "G2": 1012,
+        "G3": 1546
+      },
+      "2025": {
+        "G1": 776,
+        "G2": 847,
+        "G3": 1505
+      },
+      "2026": {
+        "G1": 523,
+        "G2": 601,
+        "G3": 1137
+      }
+    },
+    "years_present": [
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "years_missing": [],
+    "baseline_rows_per_year": 4107,
+    "anomalies": [
+      {
+        "year": 2003,
+        "rows": 928,
+        "races": 324,
+        "ratio": 0.226,
+        "expected": true,
+        "verdict": "IFHA holds only ~24 G2 and ~10 G3 races for 2003 (324 total vs ~1,400 in later years). Source-data gap, confirmed by Agent 1's per-year x group census."
+      },
+      {
+        "year": 2026,
+        "rows": 2261,
+        "races": 756,
+        "ratio": 0.551,
+        "expected": true,
+        "verdict": "Partial year: 759 races carded, and races dated after the scrape have no published result yet."
+      }
+    ]
+  },
+  "row_checks": {
+    "races": 30390,
+    "finisher_count_distribution": {
+      "0": 373,
+      "2": 5,
+      "3": 29913,
+      "4": 99
+    },
+    "races_without_results": 373,
+    "races_with_dead_heat": 249,
+    "races_with_unexpected_field": 5,
+    "rows_with_blank_horse_name_despite_results": 0,
+    "zero_purse_rows": 999,
+    "missing_purse_rows": 0,
+    "age_outliers": 1,
+    "age_min": 2,
+    "age_max": 13,
+    "age_median": 4
+  },
+  "text_hygiene": {
+    "problems": {},
+    "race_names_ending_in_a_period_preserved": 41996
+  },
+  "purse_source_usage": {
+    "site": 57565,
+    "usd_native": 29194,
+    "normalized_site_missing": 2436,
+    "normalized_stale_site": 1323
+  },
+  "spot_checks": [
+    {
+      "year": 2003,
+      "name": "breeders' cup classic",
+      "winner": "Pleasantly Perfect",
+      "date": "2003-10-25",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Pleasantly Perfect",
+      "found_date": "2003-10-25",
+      "found_race": "Breeders' Cup Classic",
+      "note": ""
+    },
+    {
+      "year": 2004,
+      "name": "breeders' cup classic",
+      "winner": "Ghostzapper",
+      "date": "2004-10-30",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Ghostzapper",
+      "found_date": "2004-10-30",
+      "found_race": "Breeders' Cup Classic [Powered by Dodge]",
+      "note": ""
+    },
+    {
+      "year": 2009,
+      "name": "breeders' cup classic",
+      "winner": "Zenyatta",
+      "date": "2009-11-07",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Zenyatta",
+      "found_date": "2009-11-07",
+      "found_race": "Breeders' Cup Classic",
+      "note": ""
+    },
+    {
+      "year": 2010,
+      "name": "breeders' cup classic",
+      "winner": "Blame",
+      "date": "2010-11-06",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Blame",
+      "found_date": "2010-11-06",
+      "found_race": "Breeders' Cup Classic",
+      "note": ""
+    },
+    {
+      "year": 2022,
+      "name": "breeders' cup classic",
+      "winner": "Flightline",
+      "date": "2022-11-05",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Flightline",
+      "found_date": "2022-11-05",
+      "found_race": "Longines Breeders' Cup Classic",
+      "note": ""
+    },
+    {
+      "year": 2005,
+      "name": "kentucky derby",
+      "winner": "Giacomo",
+      "date": "2005-05-07",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Giacomo",
+      "found_date": "2005-05-07",
+      "found_race": "Kentucky Derby",
+      "note": ""
+    },
+    {
+      "year": 2007,
+      "name": "kentucky derby",
+      "winner": "Street Sense",
+      "date": "2007-05-05",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Street Sense",
+      "found_date": "2007-05-05",
+      "found_race": "Kentucky Derby Presented by Yum! Brands",
+      "note": ""
+    },
+    {
+      "year": 2008,
+      "name": "kentucky derby",
+      "winner": "Big Brown",
+      "date": "2008-05-03",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Big Brown",
+      "found_date": "2008-05-03",
+      "found_race": "Kentucky Derby Presented by Yum! Brands",
+      "note": ""
+    },
+    {
+      "year": 2009,
+      "name": "preakness",
+      "winner": "Rachel Alexandra",
+      "date": "2009-05-16",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Rachel Alexandra",
+      "found_date": "2009-05-16",
+      "found_race": "Blackberry Preakness S.",
+      "note": ""
+    },
+    {
+      "year": 2009,
+      "name": "belmont s",
+      "winner": "Summer Bird",
+      "date": "2009-06-06",
+      "country": "USA",
+      "status": "pass",
+      "found_winner": "Summer Bird",
+      "found_date": "2009-06-06",
+      "found_race": "Belmont S.",
+      "note": ""
+    },
+    {
+      "year": 2004,
+      "name": "derby s",
+      "winner": "North Light",
+      "date": "2004-06-05",
+      "country": "ENG",
+      "status": "pass",
+      "found_winner": "North Light",
+      "found_date": "2004-06-05",
+      "found_race": "THE VODAFONE DERBY STAKES",
+      "note": ""
+    },
+    {
+      "year": 2007,
+      "name": "arc de triomphe",
+      "winner": "Dylan Thomas",
+      "date": "2007-10-07",
+      "country": "FR",
+      "status": "pass",
+      "found_winner": "Dylan Thomas",
+      "found_date": "2007-10-07",
+      "found_race": "Prix de l'Arc de Triomphe Lucien Barriere",
+      "note": ""
+    },
+    {
+      "year": 2008,
+      "name": "arc de triomphe",
+      "winner": "Zarkava",
+      "date": "2008-10-05",
+      "country": "FR",
+      "status": "pass",
+      "found_winner": "Zarkava",
+      "found_date": "2008-10-05",
+      "found_race": "Qatar Prix de l'Arc de Triomphe",
+      "note": ""
+    },
+    {
+      "year": 2009,
+      "name": "arc de triomphe",
+      "winner": "Sea The Stars",
+      "date": "2009-10-04",
+      "country": "FR",
+      "status": "pass",
+      "found_winner": "Sea The Stars",
+      "found_date": "2009-10-04",
+      "found_race": "Qatar Prix de l'Arc de Triomphe",
+      "note": ""
+    },
+    {
+      "year": 2010,
+      "name": "arc de triomphe",
+      "winner": "Workforce",
+      "date": "2010-10-03",
+      "country": "FR",
+      "status": "pass",
+      "found_winner": "Workforce",
+      "found_date": "2010-10-03",
+      "found_race": "Qatar Prix de l'Arc de Triomphe",
+      "note": ""
+    },
+    {
+      "year": 2012,
+      "name": "queen anne",
+      "winner": "Frankel",
+      "date": "2012-06-19",
+      "country": "ENG",
+      "status": "pass",
+      "found_winner": "Frankel",
+      "found_date": "2012-06-19",
+      "found_race": "Queen Anne S.",
+      "note": ""
+    },
+    {
+      "year": 2012,
+      "name": "diamond jubilee",
+      "winner": "Black Caviar",
+      "date": "2012-06-23",
+      "country": "ENG",
+      "status": "pass",
+      "found_winner": "Black Caviar",
+      "found_date": "2012-06-23",
+      "found_race": "Diamond Jubilee Stakes",
+      "note": ""
+    },
+    {
+      "year": 2005,
+      "name": "dubai world cup",
+      "winner": "Roses In May",
+      "date": "2005-03-26",
+      "country": "UAE",
+      "status": "pass",
+      "found_winner": "Roses in May",
+      "found_date": "2005-03-26",
+      "found_race": "Dubai World Cup",
+      "note": ""
+    },
+    {
+      "year": 2006,
+      "name": "dubai world cup",
+      "winner": "Electrocutionist",
+      "date": "2006-03-25",
+      "country": "UAE",
+      "status": "pass",
+      "found_winner": "Electrocutionist",
+      "found_date": "2006-03-25",
+      "found_race": "Emirates Airline Dubai World Cup",
+      "note": ""
+    },
+    {
+      "year": 2007,
+      "name": "dubai world cup",
+      "winner": "Invasor",
+      "date": "2007-03-31",
+      "country": "UAE",
+      "status": "pass",
+      "found_winner": "Invasor",
+      "found_date": "2007-03-31",
+      "found_race": "Emirates Airline Dubai World Cup",
+      "note": ""
+    },
+    {
+      "year": 2009,
+      "name": "dubai world cup",
+      "winner": "Well Armed",
+      "date": "2009-03-28",
+      "country": "UAE",
+      "status": "pass",
+      "found_winner": "Well Armed",
+      "found_date": "2009-03-28",
+      "found_race": "Dubai World Cup",
+      "note": ""
+    },
+    {
+      "year": 2007,
+      "name": "japan cup",
+      "winner": "Admire Moon",
+      "date": "2007-11-25",
+      "country": "JPN",
+      "status": "pass",
+      "found_winner": "Admire Moon",
+      "found_date": "2007-11-25",
+      "found_race": "Japan Cup",
+      "note": ""
+    },
+    {
+      "year": 2006,
+      "name": "melbourne cup",
+      "winner": "Delta Blues",
+      "date": "2006-11-07",
+      "country": "AUS",
+      "status": "not_found",
+      "found_winner": null,
+      "found_date": null,
+      "found_race": null,
+      "note": "name matched 3 row(s) but none on 2006-11-07"
+    },
+    {
+      "year": 2008,
+      "name": "melbourne cup",
+      "winner": "Viewed",
+      "date": "2008-11-04",
+      "country": "AUS",
+      "status": "pass",
+      "found_winner": "Viewed",
+      "found_date": "2008-11-04",
+      "found_race": "Emirates Melbourne Cup",
+      "note": ""
+    },
+    {
+      "year": 2009,
+      "name": "cox plate",
+      "winner": "So You Think",
+      "date": "2009-10-24",
+      "country": "AUS",
+      "status": "pass",
+      "found_winner": "So You Think",
+      "found_date": "2009-10-24",
+      "found_race": "The Tatts W. S. Cox Plate",
+      "note": ""
+    },
+    {
+      "year": 2017,
+      "name": "cox plate",
+      "winner": "Winx",
+      "date": "2017-10-28",
+      "country": "AUS",
+      "status": "pass",
+      "found_winner": "Winx",
+      "found_date": "2017-10-28",
+      "found_race": "Ladbrokes Cox Plate",
+      "note": ""
+    }
+  ],
+  "spot_check_tally": {
+    "pass": 25,
+    "not_found": 1
+  },
+  "validation_issue_counts": {
+    "purse_zero": 999,
+    "race_without_results": 373,
+    "duplicate_race_collapsed": 326,
+    "surface_missing": 269,
+    "dead_heat": 249,
+    "unexpected_finisher_count": 5,
+    "duplicate_key_distinct_races": 2,
+    "duplicate_race_results_differ": 2,
+    "age_implausible": 1,
+    "spot_check_race_not_found": 1
+  },
+  "validation_issues_total": 2227,
+  "parser_issue_counts": {
+    "distance_from_listing": 6566,
+    "purse_usd_disagrees": 1361,
+    "colour_blank": 1117,
+    "site_usd_missing": 494,
+    "no_results_published": 381,
+    "zero_purse": 340,
+    "purse_dollar_sign_assumed_usd": 243,
+    "missing_country_name": 206,
+    "unexpected_finisher_count": 105,
+    "missing_surface": 93,
+    "purse_local_is_usd": 60,
+    "colour_unmapped": 31
+  },
+  "parser_issues_total": 10997,
+  "cache_files": 30740,
+  "provisional": false
+}

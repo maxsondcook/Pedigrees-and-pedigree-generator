@@ -1,0 +1,16 @@
+sale_id,sale_company,sale_title,sale_year,sale_kind,month_index,source_file
+1,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2011,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2011).csv
+2,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2012,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2012).csv
+3,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2013,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2013).csv
+4,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2014,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2014).csv
+5,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2015,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2015).csv
+6,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2016,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2016).csv
+7,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2017,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2017).csv
+8,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2018,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2018).csv
+9,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2019,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2019).csv
+10,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2021,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2021).csv
+11,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2022,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2022).csv
+12,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2023,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2023).csv
+13,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2024,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2024).csv
+14,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2025,results,13,sales_data/Fasig-Tipton_The Saratoga Sale (2025).csv
+15,Fasig-Tipton,Fasig Tipton The Saratoga Sale,2026,upcoming,8,Analyzed Sales/analyzed_the_saratoga_sale_(2026).csv

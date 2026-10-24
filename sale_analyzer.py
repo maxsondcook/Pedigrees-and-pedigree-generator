@@ -150,6 +150,7 @@ def analyze_dataframe(df):
         else:
             df[col] = df[col].fillna("")
 
+    # Place==1 winners from the IFHA worldwide file (Grade is aliased from Group).
     raw_stakes = hypomating_engine.load_stakes_data()
     horse_summaries = hypomating_engine.build_horse_summaries(raw_stakes)
     pedigree_db = main.PEDIGREE_DATABASE
@@ -228,7 +229,8 @@ def analyze_dataframe(df):
                             surf = "dirt" if "(D)" in raw_dist.upper() else "turf" if "(T)" in raw_dist.upper() else "track"
                             sex_val = str(rec.get('Sex', ''))[:1].lower()
                             
-                            race_desc = f"the {rec.get('Purse', '')} {rec.get('Grade', '')} {rec.get('Race Name', '')} at {clean_dist_text} over the {surf}"
+                            grade = rec.get('Grade') or rec.get('Group') or ''
+                            race_desc = f"the {rec.get('Purse', '')} {grade} {rec.get('Race Name', '')} at {clean_dist_text} over the {surf}"
                             races_found.append(race_desc)
                     
                     if races_found:
@@ -259,7 +261,8 @@ def get_horse_races_description(clean_h_name, raw_stakes):
             raw_dist = str(rec.get('Distance', ''))
             clean_dist_text = convert_distance_to_furlongs(raw_dist)
             surf = "dirt" if "(D)" in raw_dist.upper() else "turf" if "(T)" in raw_dist.upper() else "track"
-            race_desc = f"the {rec.get('Purse', '')} {rec.get('Grade', '')} {rec.get('Race Name', '')} at {clean_dist_text} over the {surf}"
+            grade = rec.get('Grade') or rec.get('Group') or ''
+            race_desc = f"the {rec.get('Purse', '')} {grade} {rec.get('Race Name', '')} at {clean_dist_text} over the {surf}"
             races_found.append(race_desc)
             
     if races_found:
@@ -549,25 +552,25 @@ def run_interactive_viewer(csv_path):
             # DYNAMIC PEDIGREE DISPLAY ENGINE
             # -------------------------------------------------------------
             horse_name_for_ped = str(row.get('HORSE NAME', '')).strip()
-            clean_ped_name = main.clean_horse_name(horse_name_for_ped)
+            yob = str(row.get('YEAR OF BIRTH', row.get('YOB', ''))).strip()
+            year_match = re.search(r'\b(\d{4})\b', yob)
+            lookup_label = f"{horse_name_for_ped} ({year_match.group(1)})" if year_match else horse_name_for_ped
             
             print("=========================================================")
             print(f"PEDIGREE FOR: {horse_name_for_ped.upper()}")
             print("=========================================================")
             
-            # 1. Attempt exact match in database
-            ped_data = main.PEDIGREE_DATABASE.get(clean_ped_name)
+            # 1. Attempt exact match in database (prompt only when 2+ years and catalog has no YOB)
+            hit = main.resolve_pedigree(lookup_label, main.PEDIGREE_DATABASE, prompt=not bool(year_match))
+            ped_data = copy.deepcopy(hit["tree"]) if hit["tree"] and not hit.get("cancelled") else None
             
             # 2. Dynamic fallback for unnamed foals (e.g., SIRE x DAM 'YY)
             if not ped_data:
                 sire_name = str(row.get('SIRE', '')).strip()
                 dam_name = str(row.get('DAM', '')).strip()
                 
-                clean_sire = main.clean_horse_name(sire_name)
-                clean_dam = main.clean_horse_name(dam_name)
-                
-                sire_node = main.PEDIGREE_DATABASE.get(clean_sire)
-                dam_node = main.PEDIGREE_DATABASE.get(clean_dam)
+                sire_node = main.pedigree_tree(sire_name, main.PEDIGREE_DATABASE) or None
+                dam_node = main.pedigree_tree(dam_name, main.PEDIGREE_DATABASE) or None
                 
                 if sire_node or dam_node:
                     ped_data = {

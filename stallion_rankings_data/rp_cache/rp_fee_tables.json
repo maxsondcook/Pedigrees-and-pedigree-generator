@@ -1,0 +1,1657 @@
+{
+  "_comment": "Year-specific fees copied from Racing Post stallion fee-history pages. Amounts are integers; is_private marks Private. currency is USD unless set.",
+  "Alphabet Soup": {
+    "url": "https://www.racingpost.com/profile/horse/110366/alphabet-soup/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 20000
+      },
+      "2002": {
+        "private": true
+      },
+      "2003": {
+        "fee": 10000
+      },
+      "2004": {
+        "fee": 10000
+      },
+      "2005": {
+        "fee": 20000
+      },
+      "2006": {
+        "fee": 25000
+      },
+      "2007": {
+        "fee": 15000
+      },
+      "2008": {
+        "fee": 10000
+      }
+    }
+  },
+  "Arch": {
+    "url": "https://www.racingpost.com/profile/horse/503385/arch/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 20000
+      },
+      "2002": {
+        "fee": 15000
+      },
+      "2003": {
+        "fee": 15000
+      },
+      "2004": {
+        "fee": 5000
+      },
+      "2005": {
+        "fee": 7500
+      },
+      "2006": {
+        "fee": 15000
+      },
+      "2007": {
+        "fee": 25000
+      }
+    }
+  },
+  "Ascot Knight": {
+    "url": "https://www.racingpost.com/profile/horse/14363/ascot-knight/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 8500,
+        "currency": "CAD"
+      },
+      "2002": {
+        "fee": 6500,
+        "currency": "CAD"
+      },
+      "2003": {
+        "fee": 6500,
+        "currency": "CAD"
+      },
+      "2004": {
+        "fee": 6500,
+        "currency": "CAD"
+      },
+      "2005": {
+        "fee": 5000,
+        "currency": "CAD"
+      },
+      "2006": {
+        "fee": 3500,
+        "currency": "CAD"
+      },
+      "2007": {
+        "fee": 3000,
+        "currency": "CAD"
+      },
+      "2008": {
+        "fee": 2500,
+        "currency": "CAD"
+      }
+    }
+  },
+  "Avenue Of Flags": {
+    "url": "https://www.racingpost.com/profile/horse/484647/avenue-of-flags/fee-history/",
+    "years": {}
+  },
+  "Awesome Again": {
+    "url": "https://www.racingpost.com/profile/horse/470577/awesome-again/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 50000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "fee": 50000
+      },
+      "2004": {
+        "fee": 75000
+      },
+      "2005": {
+        "fee": 125000
+      },
+      "2006": {
+        "fee": 125000
+      },
+      "2007": {
+        "fee": 150000
+      },
+      "2008": {
+        "fee": 150000
+      }
+    }
+  },
+  "Belong to Me": {
+    "url": "https://www.racingpost.com/profile/horse/466641/belong-to-me/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 40000
+      },
+      "2002": {
+        "fee": 40000
+      },
+      "2003": {
+        "fee": 30000
+      },
+      "2004": {
+        "fee": 25000
+      },
+      "2005": {
+        "fee": 25000
+      },
+      "2006": {
+        "fee": 20000
+      },
+      "2007": {
+        "fee": 12500
+      },
+      "2008": {
+        "fee": 12500
+      }
+    }
+  },
+  "Bertrando": {
+    "url": "https://www.racingpost.com/profile/horse/72124/bertrando/fee-history/",
+    "years": {
+      "2003": {
+        "fee": 25000
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 12500
+      },
+      "2006": {
+        "fee": 12500
+      },
+      "2007": {
+        "fee": 12500
+      },
+      "2008": {
+        "fee": 12500
+      }
+    }
+  },
+  "Boundary": {
+    "url": "https://www.racingpost.com/profile/horse/513240/boundary/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 15000
+      },
+      "2002": {
+        "fee": 15000
+      },
+      "2003": {
+        "fee": 10000
+      },
+      "2004": {
+        "fee": 10000
+      },
+      "2005": {
+        "fee": 10000
+      }
+    }
+  },
+  "Broken Vow": {
+    "url": "https://www.racingpost.com/profile/horse/542711/broken-vow/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 10000
+      },
+      "2003": {
+        "fee": 10000
+      },
+      "2004": {
+        "fee": 10000
+      },
+      "2005": {
+        "fee": 10000
+      },
+      "2006": {
+        "fee": 15000
+      },
+      "2007": {
+        "fee": 25000
+      },
+      "2008": {
+        "fee": 20000
+      }
+    }
+  },
+  "Cape Town": {
+    "url": "https://www.racingpost.com/profile/horse/483935/cape-town/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 10000
+      },
+      "2002": {
+        "fee": 10000
+      },
+      "2003": {
+        "fee": 7500
+      },
+      "2004": {
+        "fee": 20000
+      },
+      "2005": {
+        "fee": 20000
+      },
+      "2006": {
+        "fee": 15000
+      },
+      "2007": {
+        "fee": 10000
+      }
+    }
+  },
+  "Capote": {
+    "url": "https://www.racingpost.com/profile/horse/304511/capote/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 40000
+      },
+      "2002": {
+        "fee": 30000
+      },
+      "2003": {
+        "fee": 30000
+      },
+      "2004": {
+        "fee": 30000
+      }
+    }
+  },
+  "Cherokee Run": {
+    "url": "https://www.racingpost.com/profile/horse/85725/cherokee-run/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 25000
+      },
+      "2002": {
+        "fee": 25000
+      },
+      "2003": {
+        "fee": 20000
+      },
+      "2004": {
+        "fee": 40000
+      }
+    }
+  },
+  "Citidancer": {
+    "url": "https://www.racingpost.com/profile/horse/305232/citidancer/fee-history/",
+    "years": {
+      "2003": {
+        "fee": 12500
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 7500
+      },
+      "2006": {
+        "fee": 7500
+      }
+    }
+  },
+  "City Zip": {
+    "url": "https://www.racingpost.com/profile/horse/534987/city-zip/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 7500
+      },
+      "2003": {
+        "fee": 7500
+      },
+      "2004": {
+        "fee": 7500
+      },
+      "2005": {
+        "fee": 15000
+      },
+      "2006": {
+        "fee": 15000
+      },
+      "2007": {
+        "fee": 15000
+      },
+      "2008": {
+        "fee": 15000
+      }
+    }
+  },
+  "Concerto": {
+    "url": "https://www.racingpost.com/profile/horse/465796/concerto/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 3500
+      },
+      "2002": {
+        "fee": 3500
+      },
+      "2003": {
+        "fee": 3500
+      },
+      "2004": {
+        "fee": 5000
+      },
+      "2005": {
+        "fee": 5000
+      },
+      "2006": {
+        "fee": 7500
+      }
+    }
+  },
+  "Cozzene": {
+    "url": "https://www.racingpost.com/profile/horse/303554/cozzene/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 60000
+      },
+      "2002": {
+        "fee": 60000
+      },
+      "2003": {
+        "fee": 60000
+      },
+      "2004": {
+        "fee": 60000
+      },
+      "2005": {
+        "fee": 50000
+      },
+      "2006": {
+        "fee": 40000
+      },
+      "2007": {
+        "fee": 35000
+      },
+      "2008": {
+        "private": true
+      }
+    }
+  },
+  "Danzig": {
+    "url": "https://www.racingpost.com/profile/horse/300582/danzig/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 275000
+      }
+    }
+  },
+  "Deputy Minister": {
+    "url": "https://www.racingpost.com/profile/horse/300611/deputy-minister/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 150000
+      },
+      "2002": {
+        "fee": 150000
+      },
+      "2003": {
+        "fee": 100000
+      },
+      "2004": {
+        "fee": 100000
+      }
+    }
+  },
+  "Distant View": {
+    "url": "https://www.racingpost.com/profile/horse/84328/distant-view/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 20000
+      },
+      "2002": {
+        "fee": 20000
+      },
+      "2003": {
+        "fee": 20000
+      },
+      "2004": {
+        "fee": 15000
+      },
+      "2005": {
+        "fee": 15000
+      },
+      "2006": {
+        "fee": 15000
+      }
+    }
+  },
+  "Dynaformer": {
+    "url": "https://www.racingpost.com/profile/horse/304944/dynaformer/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 30000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "fee": 50000
+      },
+      "2004": {
+        "fee": 75000
+      },
+      "2005": {
+        "fee": 75000
+      },
+      "2006": {
+        "fee": 100000
+      },
+      "2007": {
+        "fee": 150000
+      },
+      "2008": {
+        "fee": 150000
+      }
+    }
+  },
+  "Fly So Free": {
+    "url": "https://www.racingpost.com/profile/horse/63439/fly-so-free/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 7500
+      },
+      "2002": {
+        "fee": 10000
+      }
+    }
+  },
+  "Forest Wildcat": {
+    "url": "https://www.racingpost.com/profile/horse/521786/forest-wildcat/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 25000
+      },
+      "2002": {
+        "fee": 40000
+      },
+      "2003": {
+        "fee": 60000
+      },
+      "2004": {
+        "fee": 40000
+      },
+      "2005": {
+        "fee": 35000
+      }
+    }
+  },
+  "Forestry": {
+    "url": "https://www.racingpost.com/profile/horse/515221/forestry/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 50000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "fee": 50000
+      },
+      "2004": {
+        "fee": 50000
+      },
+      "2005": {
+        "fee": 75000
+      },
+      "2006": {
+        "fee": 100000
+      },
+      "2007": {
+        "fee": 125000
+      },
+      "2008": {
+        "fee": 100000
+      }
+    }
+  },
+  "General Meeting": {
+    "url": "https://www.racingpost.com/profile/horse/476497/general-meeting/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 20000
+      },
+      "2004": {
+        "fee": 20000
+      },
+      "2005": {
+        "fee": 10000
+      }
+    }
+  },
+  "Gilded Time": {
+    "url": "https://www.racingpost.com/profile/horse/80839/gilded-time/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 20000
+      },
+      "2002": {
+        "fee": 20000
+      },
+      "2003": {
+        "fee": 15000
+      },
+      "2004": {
+        "fee": 17500
+      },
+      "2005": {
+        "fee": 17500
+      },
+      "2006": {
+        "fee": 12500
+      },
+      "2007": {
+        "fee": 10000
+      }
+    }
+  },
+  "Gone West": {
+    "url": "https://www.racingpost.com/profile/horse/304229/gone-west/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 125000
+      },
+      "2002": {
+        "fee": 125000
+      },
+      "2003": {
+        "fee": 125000
+      },
+      "2004": {
+        "fee": 125000
+      },
+      "2005": {
+        "fee": 150000
+      },
+      "2006": {
+        "fee": 125000
+      },
+      "2007": {
+        "fee": 125000
+      },
+      "2008": {
+        "fee": 85000
+      }
+    }
+  },
+  "Grand Slam": {
+    "url": "https://www.racingpost.com/profile/horse/474604/grand-slam/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 30000
+      },
+      "2002": {
+        "fee": 25000
+      },
+      "2003": {
+        "fee": 30000
+      },
+      "2004": {
+        "fee": 50000
+      },
+      "2005": {
+        "fee": 85000
+      },
+      "2006": {
+        "fee": 50000
+      },
+      "2007": {
+        "fee": 35000
+      }
+    }
+  },
+  "Grindstone": {
+    "url": "https://www.racingpost.com/profile/horse/447435/grindstone/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 10000
+      },
+      "2002": {
+        "fee": 5000
+      },
+      "2003": {
+        "fee": 5000
+      },
+      "2004": {
+        "fee": 5000
+      },
+      "2005": {
+        "fee": 10000
+      }
+    }
+  },
+  "Gulch": {
+    "url": "https://www.racingpost.com/profile/horse/304579/gulch/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 60000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "fee": 50000
+      },
+      "2004": {
+        "fee": 50000
+      },
+      "2005": {
+        "fee": 50000
+      },
+      "2006": {
+        "fee": 40000
+      },
+      "2007": {
+        "fee": 30000
+      },
+      "2008": {
+        "fee": 20000
+      }
+    }
+  },
+  "Halo's Image": {
+    "url": "https://www.racingpost.com/profile/horse/446260/halos-image/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 5000
+      },
+      "2003": {
+        "fee": 5000
+      },
+      "2004": {
+        "fee": 7000
+      },
+      "2005": {
+        "fee": 10000
+      }
+    }
+  },
+  "Include": {
+    "url": "https://www.racingpost.com/profile/horse/535102/include/fee-history/",
+    "years": {
+      "2005": {
+        "fee": 12500
+      },
+      "2006": {
+        "fee": 12500
+      },
+      "2007": {
+        "private": true
+      },
+      "2008": {
+        "fee": 35000
+      }
+    }
+  },
+  "Indian Charlie": {
+    "url": "https://www.racingpost.com/profile/horse/486211/indian-charlie/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 10000
+      },
+      "2002": {
+        "fee": 10000
+      },
+      "2003": {
+        "fee": 10000
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 15000
+      },
+      "2006": {
+        "fee": 25000
+      },
+      "2007": {
+        "fee": 40000
+      },
+      "2008": {
+        "fee": 50000
+      }
+    }
+  },
+  "Irish River (FR)": {
+    "url": "https://www.racingpost.com/profile/horse/301183/irish-river/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 25000
+      }
+    }
+  },
+  "Maria's Mon": {
+    "url": "https://www.racingpost.com/profile/horse/106593/marias-mon/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 12500
+      },
+      "2002": {
+        "fee": 35000
+      },
+      "2003": {
+        "fee": 35000
+      },
+      "2004": {
+        "fee": 35000
+      },
+      "2005": {
+        "fee": 25000
+      },
+      "2006": {
+        "fee": 25000
+      },
+      "2007": {
+        "fee": 60000
+      }
+    }
+  },
+  "More Than Ready": {
+    "url": "https://www.racingpost.com/profile/horse/518730/more-than-ready/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 25000
+      },
+      "2002": {
+        "fee": 25000
+      },
+      "2003": {
+        "fee": 17500
+      },
+      "2004": {
+        "fee": 15000
+      },
+      "2005": {
+        "fee": 20000
+      },
+      "2006": {
+        "fee": 30000
+      },
+      "2007": {
+        "fee": 40000
+      },
+      "2008": {
+        "fee": 60000
+      }
+    }
+  },
+  "Mutakddim": {
+    "url": "https://www.racingpost.com/profile/horse/81803/mutakddim/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 5000
+      },
+      "2002": {
+        "fee": 7500
+      },
+      "2003": {
+        "fee": 6500
+      },
+      "2004": {
+        "fee": 10000
+      },
+      "2005": {
+        "fee": 10000
+      },
+      "2006": {
+        "fee": 12500
+      },
+      "2007": {
+        "fee": 12500
+      },
+      "2008": {
+        "fee": 15000
+      }
+    }
+  },
+  "Northern Afleet": {
+    "url": "https://www.racingpost.com/profile/horse/457827/northern-afleet/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 5000
+      },
+      "2002": {
+        "fee": 5000
+      },
+      "2003": {
+        "fee": 5000
+      },
+      "2004": {
+        "fee": 5000
+      },
+      "2005": {
+        "fee": 12500
+      },
+      "2006": {
+        "fee": 20000
+      },
+      "2007": {
+        "fee": 15000
+      },
+      "2008": {
+        "fee": 10000
+      }
+    }
+  },
+  "Not For Love": {
+    "url": "https://www.racingpost.com/profile/horse/535349/not-for-love/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 10000
+      },
+      "2002": {
+        "fee": 15000
+      },
+      "2003": {
+        "fee": 15000
+      },
+      "2004": {
+        "fee": 20000
+      },
+      "2005": {
+        "fee": 25000
+      }
+    }
+  },
+  "Officer": {
+    "url": "https://www.racingpost.com/profile/horse/553249/officer/fee-history/",
+    "years": {
+      "2003": {
+        "fee": 12500
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 15000
+      },
+      "2006": {
+        "fee": 15000
+      },
+      "2007": {
+        "fee": 40000
+      },
+      "2008": {
+        "fee": 35000
+      }
+    }
+  },
+  "Petionville": {
+    "url": "https://www.racingpost.com/profile/horse/102641/petionville/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 7500
+      },
+      "2002": {
+        "fee": 7500
+      },
+      "2003": {
+        "fee": 6500
+      },
+      "2004": {
+        "fee": 10000
+      },
+      "2005": {
+        "fee": 15000
+      }
+    }
+  },
+  "Phone Trick": {
+    "url": "https://www.racingpost.com/profile/horse/303778/phone-trick/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 30000
+      },
+      "2002": {
+        "fee": 25000
+      },
+      "2003": {
+        "fee": 25000
+      },
+      "2004": {
+        "fee": 25000
+      }
+    }
+  },
+  "Red Ransom": {
+    "url": "https://www.racingpost.com/profile/horse/305033/red-ransom/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 75000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "fee": 45000
+      }
+    }
+  },
+  "Rhythm": {
+    "url": "https://www.racingpost.com/profile/horse/63448/rhythm/fee-history/",
+    "years": {
+      "1998": {
+        "fee": 15000
+      }
+    }
+  },
+  "Roar": {
+    "url": "https://www.racingpost.com/profile/horse/521268/roar/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 12500
+      },
+      "2002": {
+        "fee": 7500
+      },
+      "2003": {
+        "fee": 5000
+      },
+      "2004": {
+        "fee": 6000
+      },
+      "2005": {
+        "fee": 15000
+      },
+      "2006": {
+        "fee": 10000
+      },
+      "2007": {
+        "fee": 10000
+      }
+    }
+  },
+  "Royal Academy": {
+    "url": "https://www.racingpost.com/profile/horse/49087/royal-academy/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 25000
+      },
+      "2002": {
+        "fee": 20000
+      },
+      "2003": {
+        "fee": 20000
+      },
+      "2004": {
+        "fee": 20000
+      },
+      "2005": {
+        "fee": 17500
+      },
+      "2006": {
+        "fee": 15000
+      },
+      "2007": {
+        "fee": 15000
+      }
+    }
+  },
+  "Runaway Groom": {
+    "url": "https://www.racingpost.com/profile/horse/302137/runaway-groom/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 20000
+      },
+      "2002": {
+        "fee": 20000
+      },
+      "2003": {
+        "fee": 15000
+      },
+      "2004": {
+        "fee": 15000
+      },
+      "2005": {
+        "fee": 12500
+      }
+    }
+  },
+  "Silver Deputy": {
+    "url": "https://www.racingpost.com/profile/horse/304742/silver-deputy/fee-history/",
+    "years": {
+      "2005": {
+        "fee": 40000
+      },
+      "2006": {
+        "fee": 30000
+      },
+      "2007": {
+        "fee": 30000
+      }
+    }
+  },
+  "Smart Strike": {
+    "url": "https://www.racingpost.com/profile/horse/450965/smart-strike/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 30000
+      },
+      "2003": {
+        "fee": 20000
+      },
+      "2004": {
+        "fee": 25000
+      },
+      "2005": {
+        "fee": 35000
+      },
+      "2006": {
+        "fee": 50000
+      },
+      "2007": {
+        "fee": 75000
+      },
+      "2008": {
+        "fee": 150000
+      }
+    }
+  },
+  "Smoke Glacken": {
+    "url": "https://www.racingpost.com/profile/horse/455133/smoke-glacken/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 10000
+      },
+      "2002": {
+        "fee": 15000
+      },
+      "2003": {
+        "fee": 15000
+      },
+      "2004": {
+        "fee": 25000
+      },
+      "2005": {
+        "fee": 30000
+      },
+      "2006": {
+        "fee": 30000
+      },
+      "2007": {
+        "fee": 25000
+      }
+    }
+  },
+  "Stephen Got Even": {
+    "url": "https://www.racingpost.com/profile/horse/512474/stephen-got-even/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 20000
+      },
+      "2002": {
+        "fee": 20000
+      },
+      "2003": {
+        "fee": 12500
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 12500
+      },
+      "2006": {
+        "fee": 25000
+      },
+      "2007": {
+        "fee": 20000
+      }
+    }
+  },
+  "Stormy Atlantic": {
+    "url": "https://www.racingpost.com/profile/horse/569953/stormy-atlantic/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 6000
+      },
+      "2002": {
+        "fee": 6000
+      },
+      "2003": {
+        "fee": 6000
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 15000
+      },
+      "2006": {
+        "fee": 20000
+      },
+      "2007": {
+        "fee": 30000
+      },
+      "2008": {
+        "fee": 45000
+      }
+    }
+  },
+  "Summer Squall": {
+    "url": "https://www.racingpost.com/profile/horse/72102/summer-squall/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 50000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "private": true
+      }
+    }
+  },
+  "Theatrical (IRE)": {
+    "url": "https://www.racingpost.com/profile/horse/304252/theatrical/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 80000
+      },
+      "2002": {
+        "fee": 100000
+      },
+      "2003": {
+        "fee": 75000
+      },
+      "2004": {
+        "fee": 75000
+      },
+      "2005": {
+        "fee": 50000
+      },
+      "2006": {
+        "fee": 40000
+      }
+    }
+  },
+  "Valid Expectations": {
+    "url": "https://www.racingpost.com/profile/horse/457824/valid-expectations/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 12500
+      },
+      "2003": {
+        "fee": 12500
+      },
+      "2004": {
+        "fee": 12500
+      },
+      "2005": {
+        "fee": 17500
+      }
+    }
+  },
+  "Victory Gallop": {
+    "url": "https://www.racingpost.com/profile/horse/487911/victory-gallop/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 25000
+      },
+      "2002": {
+        "fee": 20000
+      },
+      "2003": {
+        "fee": 15000
+      },
+      "2004": {
+        "fee": 30000
+      },
+      "2005": {
+        "fee": 30000
+      },
+      "2006": {
+        "fee": 10000
+      }
+    }
+  },
+  "Wild Again": {
+    "url": "https://www.racingpost.com/profile/horse/303753/wild-again/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 60000
+      },
+      "2002": {
+        "fee": 50000
+      },
+      "2003": {
+        "private": true
+      }
+    }
+  },
+  "Montbrook": {
+    "url": "https://www.racingpost.com/profile/horse/529542/montbrook/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 12500
+      },
+      "2003": {
+        "fee": 17500
+      },
+      "2004": {
+        "fee": 20000
+      },
+      "2005": {
+        "fee": 20000
+      },
+      "2006": {
+        "fee": 20000
+      },
+      "2007": {
+        "fee": 15000
+      }
+    }
+  },
+  "A.P. Indy": {
+    "url": "https://www.racingpost.com/profile/horse/464545/ap-indy/fee-history/",
+    "years": {
+      "2001": {
+        "private": true
+      },
+      "2002": {
+        "fee": 300000
+      },
+      "2003": {
+        "fee": 300000
+      }
+    }
+  },
+  "Distorted Humor": {
+    "url": "https://www.racingpost.com/profile/horse/476627/distorted-humor/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 12500
+      },
+      "2002": {
+        "fee": 10000
+      },
+      "2003": {
+        "fee": 20000
+      },
+      "2004": {
+        "fee": 50000
+      },
+      "2005": {
+        "fee": 60000
+      },
+      "2006": {
+        "fee": 150000
+      },
+      "2007": {
+        "fee": 225000
+      },
+      "2008": {
+        "fee": 300000
+      }
+    }
+  },
+  "Unbridled's Song": {
+    "url": "https://www.racingpost.com/profile/horse/107577/unbridleds-song/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 40000
+      },
+      "2002": {
+        "fee": 75000
+      },
+      "2003": {
+        "fee": 100000
+      },
+      "2004": {
+        "fee": 125000
+      },
+      "2005": {
+        "fee": 125000
+      },
+      "2006": {
+        "fee": 150000
+      },
+      "2007": {
+        "fee": 200000
+      }
+    }
+  },
+  "Kingmambo": {
+    "url": "https://www.racingpost.com/profile/horse/79045/kingmambo/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 200000
+      },
+      "2002": {
+        "fee": 200000
+      },
+      "2003": {
+        "fee": 200000
+      },
+      "2004": {
+        "fee": 225000
+      },
+      "2005": {
+        "fee": 300000
+      },
+      "2006": {
+        "fee": 300000
+      },
+      "2007": {
+        "private": true
+      },
+      "2008": {
+        "fee": 250000
+      }
+    }
+  },
+  "Thunder Gulch": {
+    "url": "https://www.racingpost.com/profile/horse/99648/thunder-gulch/fee-history/",
+    "years": {
+      "1997": {
+        "fee": 40000
+      },
+      "1998": {
+        "fee": 40000
+      },
+      "2000": {
+        "fee": 25000
+      },
+      "2001": {
+        "fee": 30000
+      },
+      "2002": {
+        "fee": 80000
+      },
+      "2003": {
+        "fee": 65000
+      },
+      "2004": {
+        "fee": 50000
+      },
+      "2005": {
+        "fee": 40000
+      },
+      "2006": {
+        "fee": 25000
+      },
+      "2007": {
+        "fee": 30000
+      },
+      "2008": {
+        "fee": 20000
+      }
+    }
+  },
+  "Langfuhr": {
+    "url": "https://www.racingpost.com/profile/horse/105579/langfuhr/fee-history/",
+    "years": {
+      "2018": {
+        "fee": 5000
+      }
+    },
+    "note": "RP profile current fee only; historical years not published on fee-history snippet"
+  },
+  "Tiznow": {
+    "url": "https://www.racingpost.com/profile/horse/533711/tiznow/fee-history/",
+    "years": {
+      "2020": {
+        "fee": 40000
+      }
+    },
+    "note": "RP profile current fee only"
+  },
+  "Dixie Union": {
+    "url": "https://www.racingpost.com/profile/horse/520309/dixie-union/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 30000
+      },
+      "2003": {
+        "fee": 30000
+      },
+      "2004": {
+        "fee": 30000
+      },
+      "2005": {
+        "fee": 30000
+      },
+      "2006": {
+        "fee": 40000
+      },
+      "2007": {
+        "fee": 40000
+      },
+      "2008": {
+        "fee": 50000
+      }
+    }
+  },
+  "Bernstein": {
+    "url": "https://www.racingpost.com/profile/horse/511841/bernstein/fee-history/",
+    "years": {
+      "2011": {
+        "fee": 20000
+      }
+    }
+  },
+  "Unusual Heat": {
+    "url": "https://www.racingpost.com/profile/horse/79100/unusual-heat/fee-history/",
+    "years": {
+      "2016": {
+        "fee": 20000
+      }
+    }
+  },
+  "Rahy": {
+    "url": "https://www.racingpost.com/profile/horse/13903/rahy/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 75000
+      },
+      "2002": {
+        "fee": 100000
+      },
+      "2003": {
+        "fee": 80000
+      },
+      "2004": {
+        "fee": 80000
+      },
+      "2005": {
+        "fee": 80000
+      },
+      "2006": {
+        "fee": 75000
+      },
+      "2007": {
+        "fee": 60000
+      },
+      "2008": {
+        "fee": 60000
+      }
+    }
+  },
+  "Seeking the Gold": {
+    "url": "https://www.racingpost.com/profile/horse/304746/seeking-the-gold/fee-history/",
+    "years": {
+      "2008": {
+        "fee": 125000
+      }
+    }
+  },
+  "Giant's Causeway": {
+    "url": "https://www.racingpost.com/profile/horse/513047/giants-causeway/fee-history/",
+    "years": {
+      "2017": {
+        "fee": 75000
+      },
+      "2018": {
+        "fee": 75000
+      }
+    }
+  },
+  "Crafty Prospector": {
+    "url": "https://www.racingpost.com/profile/horse/303496/crafty-prospector/fee-history/",
+    "years": {
+      "1998": {
+        "fee": 35000
+      },
+      "1999": {
+        "fee": 35000
+      },
+      "2001": {
+        "fee": 35000
+      },
+      "2002": {
+        "fee": 25000
+      },
+      "2003": {
+        "fee": 25000
+      },
+      "2004": {
+        "fee": 20000
+      },
+      "2005": {
+        "fee": 10000
+      },
+      "2006": {
+        "private": true
+      }
+    }
+  },
+  "Seattle Slew": {
+    "url": "https://www.racingpost.com/profile/horse/302216/seattle-slew/fee-history/",
+    "years": {
+      "1999": {
+        "fee": 125000
+      },
+      "2001": {
+        "private": true
+      },
+      "2002": {
+        "private": true
+      }
+    }
+  },
+  "Tale of the Cat": {
+    "url": "https://www.racingpost.com/profile/horse/472277/tale-of-the-cat/fee-history/",
+    "years": {
+      "2017": {
+        "fee": 30000
+      },
+      "2018": {
+        "fee": 25000
+      }
+    }
+  },
+  "Woodman": {
+    "url": "https://www.racingpost.com/profile/horse/303747/woodman/fee-history/",
+    "years": {
+      "2001": {
+        "fee": 45000
+      },
+      "2002": {
+        "fee": 40000
+      },
+      "2003": {
+        "fee": 30000
+      },
+      "2004": {
+        "fee": 25000
+      },
+      "2005": {
+        "fee": 20000
+      },
+      "2006": {
+        "fee": 20000
+      },
+      "2007": {
+        "fee": 20000
+      }
+    }
+  },
+  "Stravinsky": {
+    "url": "https://www.racingpost.com/profile/horse/500343/stravinsky/fee-history/",
+    "years": {
+      "2000": {
+        "fee": 35000
+      },
+      "2001": {
+        "fee": 35000
+      },
+      "2002": {
+        "fee": 25000
+      },
+      "2003": {
+        "fee": 17500
+      },
+      "2004": {
+        "fee": 25000
+      },
+      "2005": {
+        "fee": 25000
+      }
+    }
+  },
+  "Fusaichi Pegasus": {
+    "url": "https://www.racingpost.com/profile/horse/528538/fusaichi-pegasus/fee-history/",
+    "years": {
+      "2017": {
+        "fee": 7500
+      },
+      "2018": {
+        "fee": 7500
+      }
+    }
+  },
+  "Southern Halo": {
+    "url": "https://www.racingpost.com/profile/horse/465149/southern-halo/fee-history/",
+    "years": {
+      "2002": {
+        "fee": 15000
+      }
+    }
+  },
+  "Malibu Moon": {
+    "url": "https://www.racingpost.com/profile/horse/600985/malibu-moon/fee-history/",
+    "years": {
+      "2021": {
+        "fee": 35000
+      }
+    }
+  },
+  "Quiet American": {
+    "url": "https://www.racingpost.com/profile/horse/798106/quiet-american/fee-history/",
+    "years": {
+      "2013": {
+        "fee": 15000
+      }
+    }
+  },
+  "Put It Back": {
+    "url": "https://www.racingpost.com/profile/horse/554154/put-it-back/fee-history/",
+    "years": {
+      "2009": {
+        "fee": 8500
+      },
+      "2010": {
+        "fee": 7000
+      },
+      "2011": {
+        "fee": 5000
+      },
+      "2012": {
+        "fee": 5000
+      },
+      "2013": {
+        "fee": 6000
+      }
+    }
+  }
+}

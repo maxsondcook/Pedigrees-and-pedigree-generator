@@ -1,0 +1,2091 @@
+{
+  "accelerate": {
+    "current_fee": "Has been retired",
+    "farm": "formerly at Lane's End Farm but has been pensioned from stud",
+    "fees_by_year": {
+      "2026": "Has been retired"
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "pensioned"
+  },
+  "aloha west": {
+    "current_fee": 7500,
+    "farm": "Mill Ridge Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "american pharoah": {
+    "current_fee": 45000,
+    "farm": "Ashford Stud, Kentucky",
+    "fees_by_year": {
+      "2016": 200000,
+      "2019": 110000,
+      "2021": 100000,
+      "2022": 80000,
+      "2023": 60000,
+      "2024": 50000,
+      "2025": 45000,
+      "2026": 4000000,
+      "2027": 4000000
+    },
+    "racing_post_id": "868021",
+    "racing_post_slug": "american-pharoah",
+    "status": "active",
+    "usd_fee_years": [
+      2016,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "angel of empire": {
+    "current_fee": 5000,
+    "farm": "Taylor Made Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "annapolis": {
+    "current_fee": 12500,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "arabian knight": {
+    "current_fee": 30000,
+    "farm": "Hill N Dale",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "arabian lion": {
+    "current_fee": 15000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "arcangelo": {
+    "current_fee": 30000,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "army mule": {
+    "current_fee": 25000,
+    "farm": "Hill 'n' Dale at Xalapa",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "arthurs ride": {
+    "current_fee": 12500,
+    "farm": "Taylor Made Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "audible": {
+    "current_fee": 7500,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "authentic": {
+    "current_fee": 15000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "barnes": {
+    "current_fee": 15000,
+    "farm": "Hill N Dale",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "basin": {
+    "current_fee": 5000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "beau liam": {
+    "current_fee": 7500,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "blame": {
+    "current_fee": 25000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "bolt d oro": {
+    "current_fee": 25000,
+    "farm": "Spendthrift Farm, Kentucky",
+    "fees_by_year": {
+      "2020": 25000,
+      "2021": 15000,
+      "2022": 20000,
+      "2023": 35000,
+      "2024": 60000,
+      "2025": 30000,
+      "2026": 25000,
+      "2027": 25000
+    },
+    "racing_post_id": "1610707",
+    "racing_post_slug": "bolt-doro",
+    "status": "active",
+    "usd_fee_years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "bolt doro": {
+    "current_fee": 25000,
+    "farm": "Spendthrift Farm, Kentucky",
+    "fees_by_year": {
+      "2020": 25000,
+      "2021": 15000,
+      "2022": 20000,
+      "2023": 35000,
+      "2024": 60000,
+      "2025": 30000,
+      "2026": 25000,
+      "2027": 25000
+    },
+    "racing_post_id": "1610707",
+    "racing_post_slug": "bolt-doro",
+    "status": "active",
+    "usd_fee_years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "bright future": {
+    "current_fee": 5000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "by my standards": {
+    "current_fee": 5000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "cairo prince": {
+    "current_fee": 10000,
+    "farm": "Airdrie Stud Inc, Kentucky",
+    "fees_by_year": {
+      "2015": 10000,
+      "2016": 15000,
+      "2017": 15000,
+      "2018": 25000,
+      "2019": 25000,
+      "2020": 25000,
+      "2021": 15000,
+      "2022": 15000,
+      "2023": 15000,
+      "2024": 15000,
+      "2025": 15000,
+      "2026": 10000,
+      "2027": 10000
+    },
+    "racing_post_id": "848525",
+    "racing_post_slug": "cairo-prince",
+    "status": "active",
+    "usd_fee_years": [
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "candy ride": {
+    "current_fee": 60000,
+    "farm": "Hill 'N Dale Farms, Kentucky",
+    "fees_by_year": {
+      "2005": 10000,
+      "2006": 12500,
+      "2007": 12500,
+      "2008": 12500,
+      "2009": 12500,
+      "2010": 25000,
+      "2011": 25000,
+      "2012": 50000,
+      "2013": 40000,
+      "2014": 35000,
+      "2015": 40000,
+      "2016": 60000,
+      "2017": 60000,
+      "2018": 80000,
+      "2020": 100000,
+      "2021": 75000,
+      "2022": 75000,
+      "2023": 75000,
+      "2024": 75000,
+      "2025": 75000,
+      "2026": 60000,
+      "2027": 60000
+    },
+    "racing_post_id": "584425",
+    "racing_post_slug": "candy-ride",
+    "status": "private",
+    "usd_fee_years": [
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "candy ride arg": {
+    "current_fee": 60000,
+    "farm": "Hill 'N Dale Farms, Kentucky",
+    "fees_by_year": {
+      "2005": 10000,
+      "2006": 12500,
+      "2007": 12500,
+      "2008": 12500,
+      "2009": 12500,
+      "2010": 25000,
+      "2011": 25000,
+      "2012": 50000,
+      "2013": 40000,
+      "2014": 35000,
+      "2015": 40000,
+      "2016": 60000,
+      "2017": 60000,
+      "2018": 80000,
+      "2020": 100000,
+      "2021": 75000,
+      "2022": 75000,
+      "2023": 75000,
+      "2024": 75000,
+      "2025": 75000,
+      "2026": 60000,
+      "2027": 60000
+    },
+    "racing_post_id": "584425",
+    "racing_post_slug": "candy-ride",
+    "status": "active",
+    "usd_fee_years": [
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "carl spackler": {
+    "current_fee": 15000,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "chancer mcpatrick": {
+    "current_fee": 25000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "charge it": {
+    "current_fee": 12500,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "charlatan": {
+    "current_fee": 25000,
+    "farm": "Hill 'n' Dale at Xalapa",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "citizen bull": {
+    "current_fee": 45000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 45000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "city of light": {
+    "current_fee": 40000,
+    "farm": "Lane's End Farm",
+    "fees_by_year": {
+      "2026": 40000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "codys wish": {
+    "current_fee": 60000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 60000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "cogburn": {
+    "current_fee": 25000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "complexity": {
+    "current_fee": 20000,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 20000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "connect": {
+    "current_fee": 10000,
+    "farm": "Lane's End Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "constitution": {
+    "current_fee": 110000,
+    "farm": "WinStar Farm, Kentucky",
+    "fees_by_year": {
+      "2016": 25000,
+      "2017": 25000,
+      "2018": 25000,
+      "2020": 40000,
+      "2021": 85000,
+      "2022": 85000,
+      "2023": 110000,
+      "2024": 110000,
+      "2025": 110000,
+      "2026": 110000,
+      "2027": 110000
+    },
+    "racing_post_id": "857515",
+    "racing_post_slug": "constitution",
+    "status": "active"
+  },
+  "corniche": {
+    "current_fee": 15000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "country grammer": {
+    "current_fee": 5000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "curlin": {
+    "current_fee": 225000,
+    "farm": "Hill 'N Dale Farms, Kentucky",
+    "fees_by_year": {
+      "2009": 75000,
+      "2010": 40000,
+      "2011": 40000,
+      "2012": 40000,
+      "2013": 25000,
+      "2014": 25000,
+      "2015": 35000,
+      "2016": 100000,
+      "2017": 150000,
+      "2018": 150000,
+      "2020": 175000,
+      "2021": 175000,
+      "2022": 175000,
+      "2023": 225000,
+      "2024": 250000,
+      "2025": 225000,
+      "2026": 225000
+    },
+    "racing_post_id": "675528",
+    "racing_post_slug": "curlin",
+    "status": "active"
+  },
+  "cyberknife": {
+    "current_fee": 15000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "divisidero": {
+    "current_fee": 3500,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 3500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "domestic product": {
+    "current_fee": 25000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "dornoch": {
+    "current_fee": 30000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "dr schivel": {
+    "current_fee": 5000,
+    "farm": "Taylor Made Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "drain the clock": {
+    "current_fee": 10000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "early voting": {
+    "current_fee": 12500,
+    "farm": "Taylor Made Stallion Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "epicenter": {
+    "current_fee": 25000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "essential quality": {
+    "current_fee": 25000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "fierceness": {
+    "current_fee": 50000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 50000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "first mission": {
+    "current_fee": 10000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "flightline": {
+    "current_fee": 125000,
+    "farm": "Lane's End Farm",
+    "fees_by_year": {
+      "2026": 125000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "forte": {
+    "current_fee": 35000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 35000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "funtastic": {
+    "current_fee": 2500,
+    "farm": "Three Chimneys Farm",
+    "fees_by_year": {
+      "2026": 2500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "girvin": {
+    "current_fee": 25000,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "goal oriented": {
+    "current_fee": 30000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "golden pal": {
+    "current_fee": 15000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "goldencents": {
+    "current_fee": 10000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "good magic": {
+    "current_fee": 80000,
+    "farm": "Hill 'N Dale Farms, Kentucky",
+    "fees_by_year": {
+      "2019": 35000,
+      "2020": 35000,
+      "2021": 30000,
+      "2022": 30000,
+      "2023": 50000,
+      "2024": 125000,
+      "2025": 125000,
+      "2026": 125000,
+      "2027": 80000
+    },
+    "racing_post_id": "1655024",
+    "racing_post_slug": "good-magic",
+    "status": "active",
+    "usd_fee_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "greatest honour": {
+    "current_fee": 7500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "gun pilot": {
+    "current_fee": 12500,
+    "farm": "Three Chimneys Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "gun runner": {
+    "current_fee": 250000,
+    "farm": "Three Chimneys Farm, Kentucky",
+    "fees_by_year": {
+      "2018": 70000,
+      "2019": 70000,
+      "2020": 70000,
+      "2021": 50000,
+      "2022": 125000,
+      "2024": 250000,
+      "2025": 250000,
+      "2026": 250000
+    },
+    "racing_post_id": "901222",
+    "racing_post_slug": "gun-runner",
+    "status": "active",
+    "usd_fee_years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "gunite": {
+    "current_fee": 25000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "happy saver": {
+    "current_fee": 7500,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "hard spun": {
+    "current_fee": 15000,
+    "farm": "Jonabell Farm, Kentucky",
+    "fees_by_year": {
+      "2008": 50000,
+      "2009": 40000,
+      "2010": 35000,
+      "2011": 30000,
+      "2012": 40000,
+      "2013": 60000,
+      "2014": 4000000,
+      "2015": 35000,
+      "2016": 45000,
+      "2017": 45000,
+      "2018": 40000,
+      "2020": 40000,
+      "2021": 35000,
+      "2022": 35000,
+      "2023": 35000,
+      "2024": 35000,
+      "2025": 25000,
+      "2026": 20000,
+      "2027": 15000
+    },
+    "racing_post_id": "671451",
+    "racing_post_slug": "hard-spun",
+    "status": "active"
+  },
+  "heartland": {
+    "current_fee": 10000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "highland falls": {
+    "current_fee": 10000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "highly motivated": {
+    "current_fee": 5000,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "honor a p": {
+    "current_fee": 7500,
+    "farm": "Lane's End Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "honor ap": {
+    "current_fee": 7500,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "idol": {
+    "current_fee": 5000,
+    "farm": "Taylor Made Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "independence hall": {
+    "current_fee": 10000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "instagrand": {
+    "current_fee": 8000,
+    "farm": "Taylor Made Farm",
+    "fees_by_year": {
+      "2026": 8000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "instilled regard": {
+    "current_fee": 8000,
+    "farm": "Taylor Made Farm",
+    "fees_by_year": {
+      "2026": 8000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "into mischief": {
+    "current_fee": 250000,
+    "farm": "Spendthrift Farm, Kentucky",
+    "fees_by_year": {
+      "2010": 10000,
+      "2011": 7500,
+      "2012": 7500,
+      "2013": 20000,
+      "2014": 20000,
+      "2015": 35000,
+      "2016": 45000,
+      "2017": 75000,
+      "2018": 100000,
+      "2019": 150000,
+      "2020": 175000,
+      "2021": 225000,
+      "2022": 250000,
+      "2023": 250000,
+      "2024": 250000,
+      "2025": 250000,
+      "2026": 250000,
+      "2027": 250000
+    },
+    "racing_post_id": "693584",
+    "racing_post_slug": "into-mischief",
+    "status": "active",
+    "usd_fee_years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "jack christopher": {
+    "current_fee": 15000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "jackies warrior": {
+    "current_fee": 25000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "jimmy creed": {
+    "current_fee": 7500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "johannes": {
+    "current_fee": 10000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "jonathans way": {
+    "current_fee": 8500,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 8500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "journalism": {
+    "current_fee": null,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {},
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "justify": {
+    "current_fee": 200000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 200000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "kantharos": {
+    "current_fee": 10000,
+    "farm": "Hill 'n' Dale at Xalapa",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "karakontie": {
+    "current_fee": 15000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "kingsbarns": {
+    "current_fee": 17500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 17500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "known agenda": {
+    "current_fee": 5000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "lexitonian": {
+    "current_fee": null,
+    "farm": "Calumet Farm",
+    "fees_by_year": {},
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "private"
+  },
+  "liams map": {
+    "current_fee": 80000,
+    "farm": "Lane's End Farm, Kentucky",
+    "fees_by_year": {
+      "2016": 25000,
+      "2017": 25000,
+      "2018": 25000,
+      "2020": 35000,
+      "2021": 30000,
+      "2022": 40000,
+      "2023": 40000,
+      "2024": 40000,
+      "2025": 40000,
+      "2026": 50000,
+      "2027": 80000
+    },
+    "racing_post_id": "875552",
+    "racing_post_slug": "liams-map",
+    "status": "active"
+  },
+  "life is good": {
+    "current_fee": 60000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 60000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "locked": {
+    "current_fee": 35000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 35000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "loggins": {
+    "current_fee": 5000,
+    "farm": "Hill N Dale",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "macleans music": {
+    "current_fee": 30000,
+    "farm": "Hill 'N Dale Farms, Kentucky",
+    "fees_by_year": {
+      "2017": 8500,
+      "2018": 25000,
+      "2020": 20000,
+      "2021": 25000,
+      "2022": 50000,
+      "2023": 50000,
+      "2024": 40000,
+      "2025": 40000,
+      "2026": 30000,
+      "2027": 30000
+    },
+    "racing_post_id": "1030825",
+    "racing_post_slug": "macleans-music",
+    "status": "active"
+  },
+  "mage": {
+    "current_fee": 15000,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "maxfield": {
+    "current_fee": 50000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 50000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "maximus mischief": {
+    "current_fee": 20000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 20000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mckinzie": {
+    "current_fee": 75000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 75000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mendelssohn": {
+    "current_fee": 15000,
+    "farm": "Ashford Stud, Kentucky",
+    "fees_by_year": {
+      "2019": 35000,
+      "2020": 35000,
+      "2021": 35000,
+      "2022": 35000,
+      "2023": 25000,
+      "2024": 15000,
+      "2025": 15000,
+      "2026": 150000
+    },
+    "racing_post_id": "1478674",
+    "racing_post_slug": "mendelssohn",
+    "status": "active",
+    "usd_fee_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "midshipman": {
+    "current_fee": 15000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mindframe": {
+    "current_fee": 50000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 50000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mineshaft": {
+    "current_fee": null,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {},
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "private"
+  },
+  "mitole": {
+    "current_fee": 10000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mo donegal": {
+    "current_fee": 5000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mo town": {
+    "current_fee": 7500,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "modernist": {
+    "current_fee": 5000,
+    "farm": "Darby Dan Farm",
+    "fees_by_year": {
+      "2026": 5000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "more than looks": {
+    "current_fee": 10000,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mullikin": {
+    "current_fee": 10000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "munnings": {
+    "current_fee": 35000,
+    "farm": "Ashford Stud, Kentucky",
+    "fees_by_year": {
+      "2011": 12500,
+      "2012": 10000,
+      "2013": 10000,
+      "2014": 10000,
+      "2015": 10000,
+      "2016": 25000,
+      "2017": 25000,
+      "2018": 25000,
+      "2019": 20000,
+      "2020": 30000,
+      "2021": 40000,
+      "2022": 85000,
+      "2023": 100000,
+      "2024": 75000,
+      "2025": 65000,
+      "2026": 45000,
+      "2027": 35000
+    },
+    "racing_post_id": "715172",
+    "racing_post_slug": "munnings",
+    "status": "active",
+    "usd_fee_years": [
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "muth": {
+    "current_fee": 30000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mystic guide": {
+    "current_fee": 7500,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "mystik dan": {
+    "current_fee": 15000,
+    "farm": "Airdrie Stud",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "nashville": {
+    "current_fee": 12500,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "national treasure": {
+    "current_fee": 35000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 35000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "newgate": {
+    "current_fee": 17500,
+    "farm": "Three Chimneys Farm",
+    "fees_by_year": {
+      "2026": 17500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "not this time": {
+    "current_fee": 300000,
+    "farm": "Taylor Made Farm, Kentucky",
+    "fees_by_year": {
+      "2017": 15000,
+      "2018": 15000,
+      "2020": 12500,
+      "2021": 40000,
+      "2022": 45000,
+      "2023": 135000,
+      "2024": 150000,
+      "2025": 175000,
+      "2026": 250000,
+      "2027": 300000
+    },
+    "racing_post_id": "1144336",
+    "racing_post_slug": "not-this-time",
+    "status": "active",
+    "usd_fee_years": [
+      2017,
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "nyquist": {
+    "current_fee": 225000,
+    "farm": "Jonabell Farm, Kentucky",
+    "fees_by_year": {
+      "2017": 40000,
+      "2018": 40000,
+      "2019": 40000,
+      "2020": 40000,
+      "2021": 75000,
+      "2022": 55000,
+      "2023": 55000,
+      "2024": 85000,
+      "2025": 175000,
+      "2026": 175000,
+      "2027": 225000
+    },
+    "racing_post_id": "896792",
+    "racing_post_slug": "nyquist",
+    "status": "active"
+  },
+  "olympiad": {
+    "current_fee": 20000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 20000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "omaha beach": {
+    "current_fee": 75000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 75000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "oscar performance": {
+    "current_fee": 40000,
+    "farm": "Mill Ridge Farm",
+    "fees_by_year": {
+      "2026": 40000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "patch adams": {
+    "current_fee": 30000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "practical joke": {
+    "current_fee": 55000,
+    "farm": "Ashford Stud, Kentucky",
+    "fees_by_year": {
+      "2018": 30000,
+      "2019": 30000,
+      "2020": 25000,
+      "2021": 22500,
+      "2022": 35000,
+      "2023": 25000,
+      "2024": 50000,
+      "2025": 100000,
+      "2026": 75000,
+      "2027": 55000
+    },
+    "racing_post_id": "1086206",
+    "racing_post_slug": "practical-joke",
+    "status": "active"
+  },
+  "prince of monaco": {
+    "current_fee": 30000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 30000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "promises fulfilled": {
+    "current_fee": 2500,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 2500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "proxy": {
+    "current_fee": 12500,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "quality road": {
+    "current_fee": 100000,
+    "farm": "Lane's End Farm, Kentucky",
+    "fees_by_year": {
+      "2011": 35000,
+      "2012": 35000,
+      "2013": 25000,
+      "2014": 25000,
+      "2015": 35000,
+      "2016": 35000,
+      "2017": 35000,
+      "2018": 70000,
+      "2019": 150000,
+      "2020": 200000,
+      "2021": 150000,
+      "2022": 150000,
+      "2023": 200000,
+      "2024": 200000,
+      "2025": 150000,
+      "2026": 100000,
+      "2027": 100000
+    },
+    "racing_post_id": "727653",
+    "racing_post_slug": "quality-road",
+    "status": "active"
+  },
+  "raging bull": {
+    "current_fee": 7500,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "raging torrent": {
+    "current_fee": 15000,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "rock your world": {
+    "current_fee": 7500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "runhappy": {
+    "current_fee": null,
+    "farm": "a South Korean Farm",
+    "fees_by_year": {},
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "seize the grey": {
+    "current_fee": 25000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "senor buscador": {
+    "current_fee": 7500,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "sierra leone": {
+    "current_fee": 75000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 75000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "silver state": {
+    "current_fee": 15000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "speakers corner": {
+    "current_fee": 10000,
+    "farm": "Darley Stud",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "straight no chaser": {
+    "current_fee": 10000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "street sense": {
+    "current_fee": 35000,
+    "farm": "Jonabell Farm, Kentucky",
+    "fees_by_year": {
+      "2008": 75000,
+      "2009": 60000,
+      "2010": 50000,
+      "2011": 40000,
+      "2012": 40000,
+      "2013": 4500000,
+      "2014": 40000,
+      "2015": 35000,
+      "2016": 45000,
+      "2017": 45000,
+      "2018": 35000,
+      "2020": 75000,
+      "2021": 60000,
+      "2022": 75000,
+      "2023": 75000,
+      "2024": 60000,
+      "2025": 50000,
+      "2026": 40000,
+      "2027": 35000
+    },
+    "racing_post_id": "664565",
+    "racing_post_slug": "street-sense",
+    "status": "active"
+  },
+  "tacitus": {
+    "current_fee": 7500,
+    "farm": "Taylor Made Stallion Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "taiba": {
+    "current_fee": 25000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "take charge indy": {
+    "current_fee": 7500,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "tapit": {
+    "current_fee": 185000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 185000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "tapit trice": {
+    "current_fee": 10000,
+    "farm": "Gainesway Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "temple city": {
+    "current_fee": null,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {},
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "private"
+  },
+  "the factor": {
+    "current_fee": 10000,
+    "farm": "Lane's End Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "thousand words": {
+    "current_fee": 7500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "timberlake": {
+    "current_fee": 15000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 15000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "tiz the law": {
+    "current_fee": 40000,
+    "farm": "Coolmore Ashford Stud",
+    "fees_by_year": {
+      "2026": 40000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "tonalist": {
+    "current_fee": 10000,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 10000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "twirling candy": {
+    "current_fee": 75000,
+    "farm": "Lane's End Farm, Kentucky",
+    "fees_by_year": {
+      "2012": 15000,
+      "2013": 12500,
+      "2014": 10000,
+      "2015": 10000,
+      "2016": 15000,
+      "2017": 20000,
+      "2018": 25000,
+      "2020": 40000,
+      "2021": 40000,
+      "2022": 60000,
+      "2023": 60000,
+      "2024": 60000,
+      "2025": 60000,
+      "2026": 75000,
+      "2027": 75000
+    },
+    "racing_post_id": "763225",
+    "racing_post_slug": "twirling-candy",
+    "status": "active",
+    "usd_fee_years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "two phils": {
+    "current_fee": 7500,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "uncle mo": {
+    "current_fee": 125000,
+    "farm": "Ashford Stud, Kentucky",
+    "fees_by_year": {
+      "2012": 35000,
+      "2013": 35000,
+      "2014": 27500,
+      "2015": 25000,
+      "2016": 75000,
+      "2017": 150000,
+      "2018": 125000,
+      "2019": 125000,
+      "2020": 125000,
+      "2021": 175000,
+      "2022": 160000,
+      "2023": 150000,
+      "2024": 150000,
+      "2025": 125000
+    },
+    "racing_post_id": "768597",
+    "racing_post_slug": "uncle-mo",
+    "status": "active"
+  },
+  "union rags": {
+    "current_fee": 5000,
+    "farm": "Lane's End Farm, Kentucky",
+    "fees_by_year": {
+      "2013": 35000,
+      "2014": 35000,
+      "2015": 35000,
+      "2016": 35000,
+      "2017": 50000,
+      "2018": 60000,
+      "2019": 60000,
+      "2020": 60000,
+      "2021": 30000,
+      "2022": 30000,
+      "2023": 30000,
+      "2024": 15000,
+      "2025": 10000,
+      "2026": 10000,
+      "2027": 5000
+    },
+    "racing_post_id": "791717",
+    "racing_post_slug": "union-rags",
+    "status": "active",
+    "usd_fee_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027
+    ]
+  },
+  "up to the mark": {
+    "current_fee": 25000,
+    "farm": "Lane'S End Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "upstart": {
+    "current_fee": 25000,
+    "farm": "Winstar Farm",
+    "fees_by_year": {
+      "2026": 25000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "vekoma": {
+    "current_fee": 100000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 100000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "vino rosso": {
+    "current_fee": 7500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "violence": {
+    "current_fee": 30000,
+    "farm": "Hill 'N Dale Farms, Kentucky",
+    "fees_by_year": {
+      "2014": 15000,
+      "2015": 15000,
+      "2016": 15000,
+      "2017": 15000,
+      "2018": 25000,
+      "2019": 40000,
+      "2020": 25000,
+      "2021": 25000,
+      "2022": 25000,
+      "2023": 40000,
+      "2024": 60000,
+      "2025": 30000,
+      "2026": 30000
+    },
+    "racing_post_id": "823948",
+    "racing_post_slug": "violence",
+    "status": "active",
+    "usd_fee_years": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "volatile": {
+    "current_fee": 12500,
+    "farm": "Three Chimneys Farm",
+    "fees_by_year": {
+      "2026": 12500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "war front": {
+    "current_fee": 75000,
+    "farm": "Claiborne Farm",
+    "fees_by_year": {
+      "2026": 75000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "yaupon": {
+    "current_fee": 60000,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 60000
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  },
+  "yoshida": {
+    "current_fee": null,
+    "farm": "Winstar Farm",
+    "fees_by_year": {},
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "private"
+  },
+  "zandon": {
+    "current_fee": 7500,
+    "farm": "Spendthrift Farm",
+    "fees_by_year": {
+      "2026": 7500
+    },
+    "racing_post_id": null,
+    "racing_post_slug": null,
+    "status": "active"
+  }
+}

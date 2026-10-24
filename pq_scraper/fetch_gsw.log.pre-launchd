@@ -1,0 +1,35 @@
+
+===== RESTART 2026-10-13 12:10:53 EDT (detached nohup+caffeinate) =====
+Backup: /Users/maxsoncook/Desktop/Pedigrees and pedigree Generator/pedigrees_database.py.bak-before-pq
+Backup: /Users/maxsoncook/Desktop/Pedigrees and pedigree Generator/pedigrees_database.py.bak-before-pq
+Unique GSW-CSV horses (name+year): 35467; already in DB: 13188; to-fetch: 22279
+Requeued rate-limited rows: 0
+Requeued other-year homonyms: 0
+Terminal miss pairs loaded: 2338 (from misses.csv)
+Retrying 404 miss pairs still missing from DB: 19748 (cache bypassed)
+This run queue: 22279 (159 retry-first) skip_miss=2338 will_fetch=19941 concurrency=3 delay=1.0s
+
+===== RESTART 2026-10-13 12:11 EDT (double-fork+caffeinate) =====
+Backup: /Users/maxsoncook/Desktop/Pedigrees and pedigree Generator/pedigrees_database.py.bak-before-pq
+Unique GSW-CSV horses (name+year): 35467; already in DB: 13188; to-fetch: 22279
+Requeued rate-limited rows: 0
+Requeued other-year homonyms: 0
+Terminal miss pairs loaded: 2338 (from misses.csv)
+Retrying 404 miss pairs still missing from DB: 19748 (cache bypassed)
+This run queue: 22279 (159 retry-first) skip_miss=2338 will_fetch=19941 concurrency=3 delay=1.0s
+
+===== RESTART 2026-10-13 12:12:38 EDT (launchctl submit + caffeinate) =====
+  retryable HTTP 0 — backing off 5s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/passinetti3)
+  retryable HTTP 0 — backing off 5s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/france)
+  retryable HTTP 0 — backing off 5s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/vespone)
+  retryable HTTP 0 — backing off 15s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/passinetti3)
+  retryable HTTP 0 — backing off 15s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/france)
+  retryable HTTP 0 — backing off 5s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/time+ahead)
+  retryable HTTP 0 — backing off 15s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/time+ahead)
+  retryable HTTP 0 — backing off 45s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/passinetti3)
+  retryable HTTP 0 — backing off 45s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/france)
+  retryable HTTP 0 — backing off 45s (https://web.archive.org/web/2020id_/https://www.pedigreequery.com/time+ahead)
+
+===== RESTART 2026-10-13 12:14:12 EDT (LaunchAgent + caffeinate) =====
+
+===== RESTART 2026-10-13 12:15:01 EDT (LaunchAgent caffeinate+Python) =====

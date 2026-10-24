@@ -78,8 +78,22 @@ def find_all_horse_sub_trees(tree: dict, target_full_name: str, results: list):
     if "Dam" in tree:
         find_all_horse_sub_trees(tree["Dam"], target_full_name, results)
 
-def find_autofill_template(database: dict, target_name: str, target_year: str) -> dict:
+def find_autofill_template(database: dict, target_name: str, target_year: str, index=None) -> dict:
+    from main import clean_horse_name as main_clean
+    from pq_scraper.ancestors import build_lookup_index, lookup_tree
+
+    if index is None:
+        index = build_lookup_index(database, main_clean)
+    hit = lookup_tree(index, target_name, target_year, main_clean)
+    if hit:
+        return hit
+
     cleaned_key = clean_horse_name(target_name)
+    year_key = f"{cleaned_key} ({target_year})" if target_year and str(target_year) not in ("", "None") else ""
+    if year_key and year_key in database:
+        top_tree = database[year_key]
+        if top_tree:
+            return top_tree
     if cleaned_key in database:
         top_tree = database[cleaned_key]
         expected_full_title = f"{target_name.upper()} ({target_year})" if target_year and target_year != "None" else target_name.upper()
@@ -116,7 +130,7 @@ def check_tree_is_incomplete(node, current_gen=0, max_gen=5):
     sire_name = sire_node.get("Horse", "")
     dam_name = dam_node.get("Horse", "")
 
-    if "unknown" in sire_name.lower() or "unknown" in dam_name.upper():
+    if "unknown" in sire_name.lower() or "unknown" in dam_name.lower():
         return True
 
     return check_tree_is_incomplete(sire_node, current_gen + 1, max_gen) or check_tree_is_incomplete(dam_node, current_gen + 1, max_gen)
@@ -135,12 +149,14 @@ def extract_all_ancestor_names_and_nodes(node, found_horses=None):
         base_name = match.group(1).strip() if match else horse_full_name
         year = match.group(2).strip() if match else ""
         cleaned = clean_horse_name(base_name)
+        ident = (cleaned, year)
         
-        if cleaned not in found_horses or count_tree_depth(node) > count_tree_depth(found_horses[cleaned]["node"]):
-            found_horses[cleaned] = {
+        if ident not in found_horses or count_tree_depth(node) > count_tree_depth(found_horses[ident]["node"]):
+            found_horses[ident] = {
                 "full_name": horse_full_name,
                 "base_name": base_name,
                 "year": year,
+                "cleaned": cleaned,
                 "node": node
             }
             
@@ -161,10 +177,15 @@ def extract_and_register_ancestors(node, pedigrees):
 
     match = re.match(r"(.*) \((\d{4})\)", horse_name)
     base_name = match.group(1).strip() if match else horse_name
-    cleaned_key = clean_horse_name(base_name)
+    year = match.group(2).strip() if match else ""
+    from main import clean_horse_name as main_clean
+    from pq_scraper.dbio import storage_key_for
+
+    cleaned_key = main_clean(base_name)
+    store_key = storage_key_for(cleaned_key, year, pedigrees, main_clean)
     
-    if cleaned_key not in pedigrees or check_tree_is_incomplete(pedigrees[cleaned_key], 0, 5):
-        pedigrees[cleaned_key] = {
+    if store_key not in pedigrees or check_tree_is_incomplete(pedigrees[store_key], 0, 5):
+        pedigrees[store_key] = {
             "Horse": horse_name.upper(),
             "Sire": node.get("Sire", {"Horse": "UNKNOWN SIRE"}),
             "Dam": node.get("Dam", {"Horse": "UNKNOWN DAM"})
@@ -217,6 +238,10 @@ def generate_linear_prompt_plan(current_depth: int, max_depth: int, node_id: str
     return steps
 
 def execute_interactive_pedigree_builder(database: dict, initial_name: str, initial_year: str) -> dict:
+    from main import clean_horse_name as main_clean
+    from pq_scraper.ancestors import build_lookup_index
+
+    lookup_index = build_lookup_index(database, main_clean)
     flat_steps = generate_linear_prompt_plan(0, 5, "Root", "")
     
     # 🌟 FIX: Ensures initial values are kept consistently capitalized
@@ -248,7 +273,7 @@ def execute_interactive_pedigree_builder(database: dict, initial_name: str, init
             step_idx += 1
             continue
 
-        autofill_tree = find_autofill_template(database, parent_name, parent_year)
+        autofill_tree = find_autofill_template(database, parent_name, parent_year, index=lookup_index)
         if autofill_tree and isinstance(autofill_tree, dict):
             autofill_tree = autofill_tree.get(step["relation_label"])
         
@@ -279,7 +304,7 @@ def execute_interactive_pedigree_builder(database: dict, initial_name: str, init
                         p_name = collected_values.get(f"{prev_step['parent_id']}_NAME", "")
                         p_year = collected_values.get(f"{prev_step['parent_id']}_YEAR", "")
                         
-                        p_tree = find_autofill_template(database, p_name, p_year)
+                        p_tree = find_autofill_template(database, p_name, p_year, index=lookup_index)
                         has_autofill = p_tree.get(prev_step['relation_label']) if isinstance(p_tree, dict) else None
                         
                         if "UNKNOWN" in p_name.upper() or has_autofill:
@@ -354,7 +379,8 @@ def run_cleaner():
             extract_all_ancestor_names_and_nodes(top_tree, all_discovered_horses)
 
         incomplete_targets = []
-        for cleaned_hk, meta in sorted(all_discovered_horses.items()):
+        for _ident, meta in sorted(all_discovered_horses.items(), key=lambda kv: kv[0]):
+            cleaned_hk = meta.get("cleaned") or clean_horse_name(meta["base_name"])
             cleaned_hk_no_year = re.sub(r'\s\d{4}$', '', cleaned_hk).strip()
             
             if (cleaned_hk in bypass_list or 
@@ -425,4 +451,7 @@ def run_cleaner():
     print("\n🏁 Finished running all cleaner operations.")
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] in ("--stitch", "stitch"):
+        from pq_scraper.stitch import main as stitch_main
+        raise SystemExit(stitch_main())
     run_cleaner()

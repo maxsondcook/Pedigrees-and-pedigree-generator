@@ -1,0 +1,15 @@
+# BloodHorse scrape misses — final
+# No unpublished year/list combos for 2004–2026. Every one of the 28 titles exists
+# with data rows for every year (644 files).
+#
+# Transient Imperva ("Pardon Our Interruption") challenges occurred during the
+# requests-based first pass and some parallel Chrome fetches. All of those pages
+# were later retrieved (Chrome/Playwright and/or HTML cache) and written as CSVs.
+# No login/paywall blocked the archive tables.
+#
+# AEI 2004–2008 come from magazine PDFs on cdn.bloodhorse.com (shorter lists,
+# 51–70 sires) rather than the HTML top-150 table used from 2009 onward.
+#
+# 2026 lists are in-season/partial but populated (not empty).
+#
+# unpublished year/list combos: none

@@ -78,7 +78,19 @@ def find_autofill_template(database: dict, target_name: str, target_year: str) -
     Looks everywhere in the master database dictionary for a horse node match.
     Rejects templates where parents are merely 'Unknown'.
     """
+    from main import clean_horse_name as main_clean
+    from pq_scraper.ancestors import build_lookup_index, lookup_tree, useful_node
+
+    hit = lookup_tree(build_lookup_index(database, main_clean), target_name, target_year, main_clean)
+    if hit and useful_node(hit) and is_valid_tree(hit):
+        return hit
+
     cleaned_key = clean_horse_name(target_name)
+    year_key = f"{cleaned_key} ({target_year})" if target_year and str(target_year) not in ("", "None") else ""
+    if year_key and year_key in database:
+        top_tree = database[year_key]
+        if is_valid_tree(top_tree):
+            return top_tree
     if cleaned_key in database:
         top_tree = database[cleaned_key]
         expected_full_title = f"{target_name} ({target_year})" if target_year and target_year != "None" else target_name
@@ -278,8 +290,27 @@ def main():
     if not root_name:
         print("❌ Error: Master horse name cannot be empty.")
         return
+
+    root_bare = re.sub(r"\s*\(\d{4}\)", "", root_name).strip().upper()
+    existing_years = []
+    for key, tree in database.items():
+        key_bare = re.sub(r"\s*\(\d{4}\)", "", str(key)).strip().upper()
+        if key_bare != root_bare:
+            continue
+        label = f"{key} {(tree or {}).get('Horse', '')}"
+        found = re.search(r"\((\d{4})\)", label)
+        if found and found.group(1) not in existing_years:
+            existing_years.append(found.group(1))
+    existing_years.sort()
+    if len(existing_years) >= 2:
+        print(f"\nMultiple horses named {root_bare} are in the pedigree database.")
+        print("Which foaling year do you want?")
+        for idx, year in enumerate(existing_years, 1):
+            print(f"  [{idx}] {root_bare} ({year})")
         
     root_year = input(f"Enter {root_name}'s foaling year: ").strip()
+    if root_year.isdigit() and len(existing_years) >= 2 and 1 <= int(root_year) <= len(existing_years) and root_year not in existing_years:
+        root_year = existing_years[int(root_year) - 1]
     
     root_full_title = f"{root_name} ({root_year})" if root_year else root_name
     root_key = clean_horse_name(root_name)

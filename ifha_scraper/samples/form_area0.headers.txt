@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html
+Server: Microsoft-IIS/10.0
+Set-Cookie: ASPSESSIONIDSAADARRR=LNGNOGLBHINHAIELMGEFCAHG; path=/
+X-Powered-By: ASP.NET
+Date: Mon, 05 Oct 2026 19:00:57 GMT
+Content-Length: 57327
+Vary: Accept-Encoding
+

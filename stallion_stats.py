@@ -5,9 +5,15 @@ import re
 import sys
 
 # Explicitly import local database modules
-import stallion_profiles
+import placeholder_store
 import broodmare_sire_data
 import main  # Assumes main.py handles the master layout printing and pedigree tools
+
+
+def _stallion_profiles():
+    """Stallion cards from placeholderdatabase/stallion_stats.csv only."""
+    return placeholder_store.load_stallion_profiles()
+
 
 # Prescribed 1-to-1 ordering of sire ranks matching the master spreadsheet exactly
 RAW_RANKING_ORDER = [
@@ -171,7 +177,7 @@ def view_stallion_profile_by_rank(rank_num):
         return
 
     sire_name = RAW_RANKING_ORDER[idx]
-    all_profiles = stallion_profiles.stallion_profiles
+    all_profiles = _stallion_profiles()
     main.display_stallion_profile(sire_name, all_profiles)
     input("\nPress Enter to return to rankings...")
 
@@ -277,8 +283,8 @@ def execute_broodmare_sire_flow():
                 print(f" Comparative Index          : {matched_entry.get('comp_index', 'N/A')}")
                 print(f" Total Foals                : {matched_entry.get('cum_foals', 'N/A')}")
                 
-                clean_search = main.clean_horse_name(s_name)
-                pedigree_data = main.PEDIGREE_DATABASE.get(clean_search, None)
+                hit = main.resolve_pedigree(s_name, main.PEDIGREE_DATABASE, prompt=True)
+                pedigree_data = hit["tree"] if hit["tree"] and not hit.get("cancelled") else None
                 print("=========================================================")
                 print(f"Pedigree Tree for: {s_name.upper()}")
                 print("=========================================================")
@@ -300,7 +306,7 @@ def execute_broodmare_sire_flow():
 def safe_display_profile(stallion_name):
     """Safely triggers profile rendering with proper capitalization matching."""
     try:
-        profiles = stallion_profiles.stallion_profiles
+        profiles = _stallion_profiles()
         # Try exact match first
         if stallion_name in profiles:
             main.display_stallion_profile(stallion_name, profiles)
@@ -320,7 +326,7 @@ def display_best_value_sires():
     """Ranks stallions by Difference (Earnings Per Runner - Stud Fee). 
     Skips if Stud Fee is 0 OR if Earnings Per Runner is 0. Displays paginated results.
     """
-    profiles = stallion_profiles.stallion_profiles
+    profiles = _stallion_profiles()
     value_list = []
 
     for name, data in profiles.items():
@@ -447,7 +453,7 @@ def display_best_value_sires():
 
 def display_by_crop_years():
     """Presents a custom sub-selection menu for crop categories, resetting numbering schemes to [1]."""
-    profiles = stallion_profiles.stallion_profiles
+    profiles = _stallion_profiles()
 
     # Map keys directly matching your desired title configuration layout
     menu_map = {

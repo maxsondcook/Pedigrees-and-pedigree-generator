@@ -25,6 +25,174 @@ def clean_horse_name(name: str) -> str:
     return cleaned.strip().upper()
 
 
+def foaling_year(name: str) -> str:
+    """Four-digit year inside parentheses: 'VATICANA (2003)' -> '2003'."""
+    if not name or not isinstance(name, str):
+        return ""
+    m = re.search(r"\((\d{4})\)", name)
+    return m.group(1) if m else ""
+
+
+def years_for_name(name, pedigree_db=None):
+    """Distinct foaling years for a cleaned name from keys and Horse labels."""
+    return lookup_pedigree(name, pedigree_db)["years"]
+
+
+def lookup_pedigree(name, pedigree_db=None):
+    """Resolve a horse name to a pedigree tree without prompting.
+
+    Returns a dict:
+      tree, key, years, ambiguous, query_year, clean_name
+    Name-only queries stay unambiguous when only one year exists.
+    A year already in the query (e.g. 'VATICANA (2003)') is used as-is.
+    """
+    if pedigree_db is None:
+        pedigree_db = PEDIGREE_DATABASE if "PEDIGREE_DATABASE" in globals() else {}
+    clean = clean_horse_name(name)
+    query_year = foaling_year(name)
+    empty = {
+        "tree": None,
+        "key": None,
+        "years": [],
+        "ambiguous": False,
+        "query_year": query_year,
+        "clean_name": clean,
+    }
+    if not clean or not isinstance(pedigree_db, dict):
+        return empty
+
+    by_year = {}
+    yearless = []
+    for key, tree in pedigree_db.items():
+        if clean_horse_name(key) != clean:
+            continue
+        tree = tree if isinstance(tree, dict) else {}
+        year = foaling_year(key) or foaling_year(tree.get("Horse", ""))
+        if year:
+            by_year.setdefault(year, (key, tree))
+        else:
+            yearless.append((key, tree))
+
+    years = sorted(by_year)
+    if query_year:
+        if query_year in by_year:
+            key, tree = by_year[query_year]
+            return {
+                "tree": tree,
+                "key": key,
+                "years": years,
+                "ambiguous": False,
+                "query_year": query_year,
+                "clean_name": clean,
+            }
+        year_key = f"{clean} ({query_year})"
+        if year_key in pedigree_db and isinstance(pedigree_db[year_key], dict):
+            return {
+                "tree": pedigree_db[year_key],
+                "key": year_key,
+                "years": years,
+                "ambiguous": False,
+                "query_year": query_year,
+                "clean_name": clean,
+            }
+        return {**empty, "years": years}
+
+    if len(years) >= 2:
+        return {
+            "tree": None,
+            "key": None,
+            "years": years,
+            "ambiguous": True,
+            "query_year": "",
+            "clean_name": clean,
+        }
+
+    if len(years) == 1:
+        key, tree = by_year[years[0]]
+        return {
+            "tree": tree,
+            "key": key,
+            "years": years,
+            "ambiguous": False,
+            "query_year": years[0],
+            "clean_name": clean,
+        }
+
+    if yearless:
+        key, tree = yearless[0]
+        return {
+            "tree": tree,
+            "key": key,
+            "years": [],
+            "ambiguous": False,
+            "query_year": "",
+            "clean_name": clean,
+        }
+
+    if clean in pedigree_db and isinstance(pedigree_db[clean], dict):
+        return {
+            "tree": pedigree_db[clean],
+            "key": clean,
+            "years": [],
+            "ambiguous": False,
+            "query_year": "",
+            "clean_name": clean,
+        }
+    return empty
+
+
+def pedigree_tree(name, pedigree_db=None):
+    """Silent tree lookup. Empty dict if missing or year-ambiguous."""
+    hit = lookup_pedigree(name, pedigree_db)
+    if hit["ambiguous"] or not hit["tree"]:
+        return {}
+    return hit["tree"]
+
+
+def prompt_foaling_year(display_name, years):
+    """Ask which foaling year to use. Returns the year string, or '' if cancelled."""
+    years = [str(y) for y in years if str(y).strip()]
+    if not years:
+        return ""
+    if len(years) == 1:
+        return years[0]
+    label = clean_horse_name(display_name) or str(display_name).strip().upper()
+    print(f"\nMultiple horses named {label} are in the pedigree database.")
+    print("Which foaling year do you want?")
+    for idx, year in enumerate(years, 1):
+        print(f"  [{idx}] {label} ({year})")
+    while True:
+        choice = input("Enter year or option number (or B to cancel): ").strip()
+        if not choice or choice.lower() in ("b", "back", "cancel"):
+            return ""
+        if choice in years:
+            return choice
+        if choice.isdigit():
+            num = int(choice)
+            if 1 <= num <= len(years):
+                return years[num - 1]
+            if choice in years:
+                return choice
+        print(f"Please enter one of: {', '.join(years)}.")
+
+
+def resolve_pedigree(name, pedigree_db=None, prompt=True):
+    """Look up a pedigree, prompting for year when 2+ foaling years exist."""
+    if pedigree_db is None:
+        pedigree_db = PEDIGREE_DATABASE if "PEDIGREE_DATABASE" in globals() else {}
+    hit = lookup_pedigree(name, pedigree_db)
+    if hit["ambiguous"] and prompt:
+        year = prompt_foaling_year(hit["clean_name"], hit["years"])
+        if not year:
+            return {**hit, "tree": None, "key": None, "cancelled": True}
+        chosen = lookup_pedigree(f"{hit['clean_name']} ({year})", pedigree_db)
+        chosen["cancelled"] = False
+        return chosen
+    hit = dict(hit)
+    hit["cancelled"] = False
+    return hit
+
+
 # UPPERCASE NAMES
 def load_and_sync_all_data():
     """
@@ -40,8 +208,15 @@ def load_and_sync_all_data():
         db_map = getattr(dpd, "pedigree_map", {})
         if isinstance(db_map, dict):
             for k, v in db_map.items():
-                if isinstance(v, dict) and "Horse" in v:
-                    combined_database[clean_horse_name(k)] = copy.deepcopy(v)
+                if not (isinstance(v, dict) and "Horse" in v):
+                    continue
+                clean = clean_horse_name(k)
+                year = foaling_year(k) or foaling_year(v.get("Horse", ""))
+                payload = copy.deepcopy(v)
+                if year:
+                    combined_database[f"{clean} ({year})"] = payload
+                if clean not in combined_database:
+                    combined_database[clean] = payload
     except Exception:
         pass
 
@@ -104,70 +279,14 @@ def save_database_to_file():
 
 
 def save_profiles_to_file(master_profiles):
-    """Writes the updated stallion_profiles map back to stallion_profiles.py cleanly."""
+    """Persist stallion cards to placeholderdatabase/stallion_stats.csv."""
     try:
-        try:
-            import stallion_profiles as sp
-            profile_path = sp.__file__
-            if profile_path.endswith('.pyc'):
-                profile_path = profile_path[:-1]
-        except Exception:
-            profile_path = "stallion_profiles.py"
+        import placeholder_store
 
-        with open(profile_path, "w", encoding="utf-8") as f:
-            f.write('"""\nMaster Centralized Stallion Profiles Database\n"""\n\n')
-            f.write("stallion_profiles = {\n")
-            
-            for k_idx, (name, data) in enumerate(master_profiles.items()):
-                f.write(f'    "{name}": {{\n')
-                f.write(f'        "Farm": "{data.get("Farm", "")}",\n')
-                f.write(f'        "Year Born": {data.get("Year Born", datetime.datetime.now().year)},\n')
-                f.write(f'        "Stud Duty Year": {data.get("Stud Duty Year", datetime.datetime.now().year)},\n')
-                f.write(f'        "Stud Fee": {data.get("Stud Fee", 0)},\n')
-                f.write(f'        "Status": "{data.get("Status", "active")}",\n')
-                f.write(f'        "Surface": "{data.get("Surface", "Both")}",\n')
-                f.write(f'        "Height": "{data.get("Height", "N/A")}",\n')
-                f.write(f'        "Conformation & Physical Profile": "{data.get("Conformation & Physical Profile", "Information unavailable.")}",\n')
-                
-                mw_lines = "".join([f'            "{line}\\n"\n' for line in data.get("Major Wins", "").split('\n') if line])
-                f.write(f'        "Major Wins": (\n{mw_lines}        ),\n')
-                
-                ch_lines = "".join([f'            "{line}\\n"\n' for line in data.get("Career Highlight", "").split('\n') if line])
-                f.write(f'        "Career Highlight": (\n{ch_lines}        ),\n')
-                
-                f.write('        "Race Record": {\n')
-                rr_items = []
-                for age, s in data.get("Race Record", {}).items():
-                    rr_items.append(f'            "{age}": {{"Season": "{s.get("Season", "")}", "Starts": {s.get("Starts", 0)}, "1sts": {s.get("1sts", 0)}, "2nds": {s.get("2nds", 0)}, "3rds": {s.get("3rds", 0)}, "Earnings": {s.get("Earnings", 0)}, "Major Accomplishments": "{s.get("Major Accomplishments", "n/a")}"}}')
-                f.write(",\n".join(rr_items) + "\n        },\n")
-                
-                if "Progeny Racing Statistics" in data:
-                    f.write('        "Progeny Racing Statistics": {\n')
-                    prs_items = [f'            "{stat_k}": {repr(stat_v)}' for stat_k, stat_v in data["Progeny Racing Statistics"].items()]
-                    f.write(",\n".join(prs_items) + "\n        },\n")
-                    
-                if "Progeny Earnings Statistics" in data:
-                    f.write('        "Progeny Earnings Statistics": {\n')
-                    pes_items = [f'            "{stat_k}": {repr(stat_v)}' for stat_k, stat_v in data["Progeny Earnings Statistics"].items()]
-                    f.write(",\n".join(pes_items) + "\n        },\n")
-
-                if "Legacy Progeny Stats" in data:
-                    f.write('        "Legacy Progeny Stats": {\n')
-                    f.write(f'            "Total Earnings": "{data.get("Legacy Progeny Stats", {}).get("Total Earnings", "N/A")}",\n')
-                    f.write(f'            "Average Progeny Win Distance": "{data.get("Legacy Progeny Stats", {}).get("Average Progeny Win Distance", "N/A")}",\n')
-                    f.write(f'            "GSW / G1W Ratio": "{data.get("Legacy Progeny Stats", {}).get("GSW / G1W Ratio", "N/A")}"\n')
-                    f.write('        },\n')
-                
-                ped_var_name = clean_horse_name(name).replace(" ", "_") + "_pedigree"
-                f.write(f'        "Pedigree": "{ped_var_name}"\n')
-                
-                comma = "," if k_idx < len(master_profiles) - 1 else ""
-                f.write(f"    }}{comma}\n")
-                
-            f.write("}\n")
-        print("📊 Stallion profiles data file successfully compiled and saved to disk!")
+        placeholder_store.save_stallion_profiles(master_profiles or {})
+        print("\n💾 Stallion stats written to placeholderdatabase/stallion_stats.csv")
     except Exception as e:
-        print(f"⚠️  Warning: Could not save stallion stats profile to disk: {e}")
+        print(f"\n⚠️  Warning: Could not save stallion stats CSV: {e}")
 
 
 # ==============================================================================
@@ -193,12 +312,13 @@ def get_horse_input(role="the horse", depth=0, prefilled_data=None, parent_looku
     is_overridden = False
 
     if name:
-        lookup_name = clean_horse_name(name)
-        if lookup_name in PEDIGREE_DATABASE:
-            if not prefilled_data or (not prefilled_data.get("Sire") and not prefilled_data.get("Dam")):
-                prefilled_data = copy.deepcopy(PEDIGREE_DATABASE[lookup_name])
-                if "Horse" in prefilled_data:
-                    name = prefilled_data["Horse"].upper()
+        hit = resolve_pedigree(name, PEDIGREE_DATABASE, prompt=True)
+        if hit.get("cancelled"):
+            return None
+        if hit["tree"] and (not prefilled_data or (not prefilled_data.get("Sire") and not prefilled_data.get("Dam"))):
+            prefilled_data = copy.deepcopy(hit["tree"])
+            if "Horse" in prefilled_data:
+                name = prefilled_data["Horse"].upper()
 
     if not name or "UNKNOWN" in name:
         if name and "UNKNOWN" in name:
@@ -208,10 +328,12 @@ def get_horse_input(role="the horse", depth=0, prefilled_data=None, parent_looku
             user_input = input(f"Enter the name of {role}: ").strip().upper()
             
         if user_input:
-            user_lookup = clean_horse_name(user_input)
-            if user_lookup in PEDIGREE_DATABASE:
+            hit = resolve_pedigree(user_input, PEDIGREE_DATABASE, prompt=True)
+            if hit.get("cancelled"):
+                return None
+            if hit["tree"]:
                 print(f"🌟 Match found for '{user_input}' inside data profiles! Autofilling branches...")
-                prefilled_data = copy.deepcopy(PEDIGREE_DATABASE[user_lookup])
+                prefilled_data = copy.deepcopy(hit["tree"])
                 name = prefilled_data.get("Horse", user_input).upper()
             else:
                 name = user_input
@@ -226,16 +348,18 @@ def get_horse_input(role="the horse", depth=0, prefilled_data=None, parent_looku
         return None
 
     if not prefilled_data:
-        lookup_name = clean_horse_name(name)
-        if lookup_name in PEDIGREE_DATABASE:
+        hit = resolve_pedigree(name, PEDIGREE_DATABASE, prompt=True)
+        if hit.get("cancelled"):
+            return None
+        if hit["tree"]:
             print(f"🌟 Match found for '{name}'! Merging ancestral data branches...")
-            prefilled_data = copy.deepcopy(PEDIGREE_DATABASE[lookup_name])
+            prefilled_data = copy.deepcopy(hit["tree"])
 
     horse_data = {"Horse": name}
     
     if depth < 5:
         print(f"\n--- Ancestors for {name} ---")
-        db_lookup = PEDIGREE_DATABASE.get(clean_horse_name(name), {})
+        db_lookup = pedigree_tree(name, PEDIGREE_DATABASE)
         
         prefilled_sire = (prefilled_data.get("Sire") if prefilled_data else None) or db_lookup.get("Sire")
         prefilled_dam = (prefilled_data.get("Dam") if prefilled_data else None) or db_lookup.get("Dam")
@@ -274,11 +398,12 @@ def get_horse_input(role="the horse", depth=0, prefilled_data=None, parent_looku
 # ==============================================================================
 # 5. INBREEDING ANALYSIS ENGINE
 # ==============================================================================
-def analyze_inbreeding(horse_dict):
+def compute_inbreeding(horse_dict):
     """
     Parses a 5-generation pedigree dictionary to track ancestor locations,
-    computes consolidated cross-matching (Sire x Dam) using an uppercase layout format, 
+    computes consolidated cross-matching (Sire x Dam) using an uppercase layout format,
     and flags single-side linebreeding (Sire-side or Dam-side duplicates).
+    Returns a JSON-serializable report (no printing).
     """
     sire_occurrences = {}
     dam_occurrences = {}
@@ -302,14 +427,14 @@ def analyze_inbreeding(horse_dict):
         
         path_dict[path_str] = display_name
         
-        db_lookup = PEDIGREE_DATABASE.get(clean_horse_name(raw_name), {})
+        db_lookup = pedigree_tree(raw_name, PEDIGREE_DATABASE)
         sire_branch = node.get("Sire") or db_lookup.get("Sire")
         dam_branch = node.get("Dam") or db_lookup.get("Dam")
         
         traverse(sire_branch, current_depth + 1, side_map, f"{path_str}.S", path_dict)
         traverse(dam_branch, current_depth + 1, side_map, f"{path_str}.D", path_dict)
 
-    db_root = PEDIGREE_DATABASE.get(clean_horse_name(horse_dict.get("Horse", "")), {})
+    db_root = pedigree_tree(horse_dict.get("Horse", ""), PEDIGREE_DATABASE)
     sire_root = horse_dict.get("Sire") or db_root.get("Sire")
     dam_root = horse_dict.get("Dam") or db_root.get("Dam")
 
@@ -369,44 +494,56 @@ def analyze_inbreeding(horse_dict):
             gens_str = ", ".join([f"{g}D" for g in sorted(d_gens)])
             dam_side_linebred.append(f"{ancestor_name} ({gens_str})")
 
+    return {
+        "cross_inbreeding": cross_inbred_results,
+        "sire_side_linebreeding": sire_side_linebred,
+        "dam_side_linebreeding": dam_side_linebred,
+        "coefficient": coefficient_total,
+        "coefficient_pct": round(coefficient_total * 100, 4),
+    }
+
+
+def analyze_inbreeding(horse_dict):
+    """CLI printer for compute_inbreeding."""
+    report = compute_inbreeding(horse_dict)
     print("-" * 80)
     print("Pedigree Inbreeding & Linebreeding Report:\n")
     
     print("Cross-Inbreeding (Sire x Dam):")
-    if cross_inbred_results:
-        for result in cross_inbred_results:
+    if report["cross_inbreeding"]:
+        for result in report["cross_inbreeding"]:
             print(f" • {result}")
     else:
         print(" None detected within 5 generations.")
         
     print("\nSire-Side Linebreeding (Duplicates on Sire side):")
-    if sire_side_linebred:
-        for result in sire_side_linebred:
+    if report["sire_side_linebreeding"]:
+        for result in report["sire_side_linebreeding"]:
             print(f" • {result}")
     else:
         print(" None detected.")
 
     print("\nDam-Side Linebreeding (Duplicates on Dam side):")
-    if dam_side_linebred:
-        for result in dam_side_linebred:
+    if report["dam_side_linebreeding"]:
+        for result in report["dam_side_linebreeding"]:
             print(f" • {result}")
     else:
         print(" None detected.")
         
-    print(f"\nInbreeding Coefficient (Wright's Equation): {coefficient_total * 100:.4f}%")
+    print(f"\nInbreeding Coefficient (Wright's Equation): {report['coefficient_pct']:.4f}%")
     print("-" * 80)
+    return report
 
 
 # ==============================================================================
 # 6. PROFILE INTERFACE RUNTIME VIEWERS & GRID RENDERER
 # ==============================================================================
 def load_master_profiles():
-    """Loads display cards from stallion_profiles database if available."""
+    """Load stallion display cards from placeholderdatabase/stallion_stats.csv."""
     try:
-        import stallion_profiles as sp
-        if "stallion_profiles" in sys.modules:
-            importlib.reload(sys.modules["stallion_profiles"])
-        return getattr(sp, "stallion_profiles", {})
+        import placeholder_store
+
+        return placeholder_store.load_stallion_profiles()
     except Exception:
         return {}
 
@@ -445,7 +582,8 @@ def print_pedigree_grid(horse_dict):
 
         if depth < 5:
             h_name = parsed["name"]
-            db_lookup = PEDIGREE_DATABASE.get(clean_horse_name(h_name), {}) if 'PEDIGREE_DATABASE' in globals() else {}
+            year_label = f"{h_name} ({parsed['year']})" if parsed.get("year") else h_name
+            db_lookup = pedigree_tree(year_label) if 'PEDIGREE_DATABASE' in globals() else {}
             sire = (node.get("Sire") if isinstance(node, dict) else None) or db_lookup.get("Sire")
             dam = (node.get("Dam") if isinstance(node, dict) else None) or db_lookup.get("Dam")
 
@@ -557,11 +695,16 @@ def display_stallion_profile(search_name, all_profiles):
             break
 
     horse_name = matched_key.upper() if matched_key else search_name.strip().upper()
-    pedigree_data = PEDIGREE_DATABASE.get(clean_search, None)
+    hit = resolve_pedigree(search_name, PEDIGREE_DATABASE, prompt=True)
+    if hit.get("cancelled"):
+        return
+    pedigree_data = copy.deepcopy(hit["tree"]) if hit["tree"] else None
+    if pedigree_data and pedigree_data.get("Horse"):
+        horse_name = pedigree_data.get("Horse")
     
     has_valid_pedigree = False
     if pedigree_data and isinstance(pedigree_data, dict):
-        db_lookup = PEDIGREE_DATABASE.get(clean_search, {})
+        db_lookup = pedigree_data
         if (pedigree_data.get("Sire") or db_lookup.get("Sire") or 
             pedigree_data.get("Dam") or db_lookup.get("Dam")):
             has_valid_pedigree = True
@@ -758,6 +901,17 @@ def display_stallion_profile(search_name, all_profiles):
         if mares_bred_val is not None and str(mares_bred_val).strip().upper() != "N/A" and mares_bred_val != "":
             print(f"Mares Bred In 2025: {mares_bred_val}")
             has_printed_mb_stats = True
+
+        try:
+            from crossr_core.horses import load_book_stats
+            _, mares_hist = load_book_stats()
+            mares_2026 = (mares_hist.get(clean_search) or {}).get(2026) or {}
+            mares_bred_2026 = mares_2026.get("mares_bred")
+        except Exception:
+            mares_bred_2026 = None
+        if mares_bred_2026 is not None:
+            print(f"Mares Bred In 2026: {mares_bred_2026}")
+            has_printed_mb_stats = True
             
         if lf_2025_val is not None and str(lf_2025_val).strip().upper() != "N/A" and lf_2025_val != "":
             print(f"Live Foal Percentage 2025: {lf_2025_val}")
@@ -768,6 +922,55 @@ def display_stallion_profile(search_name, all_profiles):
             has_printed_mb_stats = True
 
         if has_printed_mb_stats:
+            print("-" * 80)
+
+        try:
+            from crossr_core.horses import broodmare_sire_history
+            bms_rows = broodmare_sire_history(matched_key or search_name)
+        except Exception:
+            bms_rows = []
+        if bms_rows:
+            print("BROODMARE SIRE:")
+            print(f"{'Year':<8} {'Rank':<8} {'Avg Yearling':<16} {'Sold':<8}")
+            for row in bms_rows:
+                rank = f"#{row['rank']}" if row.get("rank") else "—"
+                avg = f"${row['avg_yearling']:,}" if row.get("avg_yearling") else "—"
+                sold = row.get("n_yearlings") if row.get("n_yearlings") else "—"
+                print(f"{row['year']:<8} {rank:<8} {avg:<16} {sold}")
+            print("-" * 80)
+
+        try:
+            from crossr_core.horses import stallion_ranking_history
+            ranking_payload = stallion_ranking_history(
+                matched_key or search_name,
+                entered_stud=year_entered_stud if data else None,
+            )
+        except Exception:
+            ranking_payload = {}
+        ranking_rows = ranking_payload.get("rows") or ranking_payload
+        leading = ranking_rows.get("leading_sire") or []
+        if leading:
+            print("STALLION RANKINGS (Leading Sire / Mares Bred / Stud Fee):")
+            print(f"{'Year':<8} {'Leading Sire':<14} {'Mares Bred':<12} {'Stud Fee':<10}")
+            mares_map = {r["year"]: r.get("rank") for r in ranking_rows.get("mares_bred") or []}
+            fee_map = {r["year"]: r.get("rank") for r in ranking_rows.get("stud_fee") or []}
+            years = sorted(
+                set(r["year"] for r in leading)
+                | set(mares_map)
+                | set(fee_map),
+                reverse=True,
+            )
+            def _rk(val):
+                return f"#{val}" if val else "N/A"
+            leading_map = {r["year"]: r.get("rank") for r in leading}
+            for year in years:
+                print(
+                    f"{year:<8} {_rk(leading_map.get(year)):<14} "
+                    f"{_rk(mares_map.get(year)):<12} {_rk(fee_map.get(year)):<10}"
+                )
+            extra = [item["label"] for item in (ranking_payload.get("lists") or []) if item.get("group") == "bloodhorse"]
+            if extra:
+                print(f"  Other lists available: {len(extra)}")
             print("-" * 80)
 
         if has_valid_pedigree:
@@ -887,7 +1090,7 @@ if __name__ == "__main__":
             
         elif choice == "6":  
             import sales_history
-            sales_history.run_sales_menu()
+            sales_history.run_sales_menu(PEDIGREE_DATABASE)
             
         else:
             if choice:
